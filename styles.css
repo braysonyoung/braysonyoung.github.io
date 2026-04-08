@@ -1,0 +1,646 @@
+body {
+    font-family: "Merriweather", serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+header, nav, main, footer {
+    margin-bottom: 20px;
+}
+
+h1 {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+
+
+
+
+
+@keyframes AllPagesbreatheText {
+  0%   { transform: scale(1,1); opacity: 0.9; }
+   25%  { transform: scale(.93,1.04); opacity: 1; }
+  50%  { transform: scale(1.017,0.9); opacity: 1; }
+   75%  { transform: scale(.96,1.09); opacity: 1; }
+  100% { transform: scale(1,1); opacity: 0.9; }
+}
+
+h1 {
+  display: inline-block;
+  animation: AllPagesbreatheText 30s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+
+@keyframes wobble {
+  0%   { transform: skewX(0deg); }
+  25%  { transform: skewX(6deg); }
+  50%  { transform: skewX(-6deg); }
+  75%  { transform: skewX(3deg); }
+  100% { transform: skewX(0deg); }
+}
+
+body::before {
+  animation: drift 30s infinite alternate;
+}
+
+@keyframes drift {
+  0% { transform: scale(1) translateY(0) rotate(0deg); }
+  100% { transform: scale(1.3) translateY(-30px) rotate(5deg); }
+}
+
+h2 {
+    font-family: "Young Serif", serif;
+    color:rgb(55, 54, 54)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+nav {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 2px 0;
+}
+
+nav a {
+    display: inline-block;
+     transition: transform 0.3s ease-in-out;
+    font-size: 0.85em;
+    padding: 1px 7px;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:not(.active):hover {
+    animation: stretchSquash 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes stretchSquash {
+  0%   { transform: scaleX(1) scaleY(1); }
+  25%  { transform: scaleX(1.07) scaleY(0.95); }
+  50%  { transform: scaleX(0.9) scaleY(1.1); }
+  75%  { transform: scaleX(1.05) scaleY(0.95); }
+  100% { transform: scaleX(1) scaleY(1); }
+}
+
+nav a {
+  transition: transform 2s ease;
+}
+
+nav a.active {
+  
+  animation: subtlePulse 10s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%   { transform: translateY(0px) scale(1.3); }
+  50%  { transform: translateY(-1px)scale(1.4); }  /* very small change */
+  100% { transform: translateY(0px) scale(1.3); }
+}
+
+
+
+
+nav a.active {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+nav a,
+nav a:visited,
+nav a:active {
+  background: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+header {
+    margin-top: 40px;
+    margin-bottom: 36px;
+}
+
+header h1 {
+    font-size: 5em;
+    margin: 0 0 10px 0;
+    color: hsla(58, 100%, 93%, 0.868);
+    font-weight: normal;
+    font-family: "Caprasimo", serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.home-page header h1 {
+    font-size: clamp(9rem, 12vw + 2rem, 15rem);
+    max-width: min(95vw, 1000px);
+    width: min(95vw, 1000px);
+    padding: 0 2.5vw;
+    box-sizing: border-box;
+    line-height: 0.95;
+    white-space: pre-wrap;
+    margin: 0 auto 0.2em;
+}
+
+header h2 {
+    font-family: "Young Serif", serif;
+}
+
+.young-serif-regular {
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.merriweather-400 {
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.caprasimo-regular {
+    font-family: "Caprasimo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* DEFAULT container (all pages) */
+.container {
+    background: rgba(251, 249, 223, 0.702);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 20px 20px 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+
+
+
+
+/* ========================= */
+/* HOME PAGE ONLY */
+/* ========================= */
+
+
+
+
+
+
+body.home-page {
+  background: #0e0e0e00;
+}
+
+body.home-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: url("Backgrounds/Background\ Images.003.jpeg") center / cover no-repeat;
+
+  opacity: 0.75;        /* keeps it subtle */
+  filter: blur(1px);   /* makes it feel atmospheric */
+}
+
+
+
+/* Home page h2 styles */
+.home-page h2 {
+  color: hsla(58, 100%, 93%, 0.868); 
+  opacity: 0.75;      /* set text color (e.g., cream) */
+  background: none;       /* remove any background */
+  box-shadow: none;       /* remove any shadow from previous container */
+  padding: 0;             /* remove padding if container had it */
+  margin: 0;              /* optional: control spacing */
+  font-size: 3rem;        /* example: larger than other pages */
+  text-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.25);
+}
+
+/* Remove background/box of main container on home page */
+.home-page .container {
+  background: none;       /* remove container background */
+  box-shadow: none;       /* remove any shadow */
+  padding: 0;             /* optional: remove padding */
+}
+
+
+/* Layer 1: slow zoom + drift + rotate */
+.home-page .layer1 {
+  animation: layer1Anim 40s infinite alternate linear;
+}
+
+@keyframes layer1Anim {
+  0%   { transform: scale(1) translate(0,0) rotate(0deg); }
+  100% { transform: scale(1.55) translate(30px,20px) rotate(0deg); }
+}
+
+/* Layer 2: medium diagonal drift + rotate */
+.home-page .layer2 {
+  opacity: 0.55;
+  animation: layer2Anim 45s infinite alternate linear;
+}
+
+@keyframes layer2Anim {
+  0%   { transform: scale(1) translate(0,0) rotate(0deg); }
+  100% { transform: scale(2) translate(50px,30px) rotate(0deg); }
+}
+
+/* Layer 3: subtle float / wobble */
+.home-page .layer3 {
+  opacity: 0.1;
+  animation: layer3Anim 45s infinite alternate ease-in-out;
+}
+
+@keyframes layer3Anim {
+  0%   { transform: translateY(0px) translateX(0px); }
+  50%  { transform: translateY(-15px) translateX(10px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+
+
+
+
+@keyframes breatheText {
+  0%   { transform: scale(1,1); opacity: 0.9; }
+   25%  { transform: scale(.90,1.05); opacity: 1; }
+  50%  { transform: scale(1.018,0.9); opacity: 1; }
+   75%  { transform: scale(.96,1.09); opacity: 1; }
+  100% { transform: scale(1,1); opacity: 0.9; }
+}
+
+.home-title {
+  display: inline-block;
+  animation: breatheText 40s ease-in-out infinite;
+}
+
+
+
+
+
+body:not(.home-page)::before {
+  animation: drift 15s infinite alternate ease-in-out;
+  @keyframes drift {
+    0% { transform: scale(1.1) translateY(0) rotate(0deg); }
+    100% { transform: scale(2.48) translateY(-30px) rotate(0deg); }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* VISUALS PAGE ONLY GRID */
+/* ========================= */
+
+
+body.visuals-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: url("Backgrounds/backgrounds.001.jpeg") center / cover no-repeat;
+
+  opacity: 0.95;        /* keeps it subtle */
+  filter: blur(0px);   /* makes it feel atmospheric */
+}
+
+
+
+.visuals-page .container {
+     background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 60px auto;
+}
+
+.visuals-page .container > * {
+    grid-column: span 2; /* 6 columns ÷ 3 = 2 each */
+    align-items: start; /* KEY LINE */
+}
+
+
+
+
+/* optional: style each project item */
+.visuals-page .container > * {
+    background: rgba(251, 249, 223, 0.796);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+
+.visuals-page .container > * {
+  grid-column: span 2; /* each takes 1/3 of the 6-column grid */
+}
+
+
+
+.project img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+
+
+@media (max-width: 900px) {
+    .visuals-page .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .visuals-page .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .visuals-page .container {
+        grid-template-columns: 1fr;
+    }
+
+    .visuals-page .container > * {
+        grid-column: span 1 !important;
+        transform: none;
+    }
+}
+
+
+
+
+/* ========================= */
+/* MUSIC PAGE ONLY  */
+/* ========================= */
+
+body.music-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: url("Backgrounds/backgrounds.002.jpeg") center / cover no-repeat;
+
+  opacity: 0.75;        /* keeps it subtle */
+  filter: blur(0px);   /* makes it feel atmospheric */
+}
+
+.music-page .container {
+     background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    border-radius: 0px;
+     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    width: 100%;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+
+
+
+
+/* optional: style each project item */
+.music-page .container > * {
+    background: rgba(251, 249, 223, 0.796);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+
+.music-page .container > * {
+  grid-column: span 1; /* always 1/3 width */
+}
+
+
+.project img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+
+
+@media (max-width: 900px) {
+    .music-page .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .music-page .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .music-page .container {
+        grid-template-columns: 1fr;
+    }
+
+    .music-page .container > * {
+        grid-column: span 1 !important;
+        transform: none;
+    }
+}
+
+
+
+
+.video-wrapper {
+  width: 100%;   /* fill the grid column */
+  padding: 20px;
+  background-color: rgba(251, 249, 223, 0.796);
+}
+
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
+
+
+
+/* ========================= */
+/* ABOUT PAGE ONLY */
+/* ========================= */
+
+
+
+body.about-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: url("Backgrounds/backgrounds.003.jpeg") center / cover no-repeat;
+
+  opacity: 0.75;        /* keeps it subtle */
+  filter: blur(3px);   /* makes it feel atmospheric */
+}
+
+
+
+
+.container {
+    background: rgba(251, 249, 223, 0.702);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+
+
+
+/* SAME GRID SYSTEM */
+.about-page .container {
+  align-items: start;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  align-items: center;
+
+  max-width: 1100px;
+  margin: 60px auto;
+}
+
+
+/* TEXT = 2/3 WIDTH */
+.about-text {
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 3;
+  background: rgba(251, 249, 223, 0.796);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+
+/* IMAGES = 1/3 WIDTH EACH */
+.about-img {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* <-- centers the images vertically relative to text box */
+  gap: 2rem;               /* space between images */
+
+  
+  grid-column: span 2;
+
+  background: rgba(251, 249, 223, 0.796);
+  padding: 10px;
+  border-radius: 6px;
+
+  
+}
+
+
+
+
+
+
+
+/* MAKE IMAGES SQUARE */
+.about-img img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+
+
+
+/* ========================= */
+/* contact PAGE ONLY */
+/* ========================= */
+
+
+
+body.contact-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: url("Backgrounds/backgrounds.004.jpeg") center / cover no-repeat;
+
+  opacity: 0.75;        /* keeps it subtle */
+  filter: blur(1px);   /* makes it feel atmospheric */
+}
+
+.container {
+ padding: 5px 20px 20px 5px; /* container has no padding */
+}
+
+
+/* contact page: narrower container */
+.contact-page .container {
+  max-width: 300px;   /* adjust as needed */
+  margin-left: auto;   /* center horizontally */
+  margin-right: auto;  /* center horizontally */
+  width: 90%;          /* optional: responsive width */
+}
