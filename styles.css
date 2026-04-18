@@ -294,11 +294,20 @@ body.home-page::before {
 
 @keyframes breatheText {
   0%   { transform: scale(1,1); opacity: 0.9; }
-   25%  { transform: scale(.90,1.05); opacity: 1; }
-  50%  { transform: scale(1.018,0.9); opacity: 1; }
-   75%  { transform: scale(.96,1.09); opacity: 1; }
+   25%  { transform: scale(.93,1.03); opacity: 1; }
+  50%  { transform: scale(1.015,0.92); opacity: 1; }
+   75%  { transform: scale(.96,1.06); opacity: 1; }
   100% { transform: scale(1,1); opacity: 0.9; }
 }
+
+@keyframes breatheIcons {
+  0%   { transform: scale(1,1); opacity: 0.9; }
+   25%  { transform: scale(.9,1.08); opacity: 1; }
+  50%  { transform: scale(1.13,1.1); opacity: 1; }
+   75%  { transform: scale(.95,1.06); opacity: 1; }
+  100% { transform: scale(1,1); opacity: 0.9; }
+}
+
 
 .home-title {
   display: inline-block;
@@ -319,7 +328,42 @@ body:not(.home-page)::before {
 
 
 
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  margin-top: 170px;
+}
 
+
+
+.contact-icons a:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.contact-icons a:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.contact-icons a:nth-child(3) {
+  animation-delay: 8s;
+}
+
+
+
+.contact-icons a {
+  font-size: 50px;
+  color: rgba(251, 249, 223, 0.796);
+  transition: 0.3s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+  animation: breatheIcons 20s ease-in-out infinite;
+}
+
+.contact-icons a:hover {
+ animation: stretchSquash 0.8s infinite alternate ease-in-out;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.12);
+   color: rgba(236, 235, 215, 0.796);
+}
 
 
 
@@ -615,12 +659,12 @@ body.about-page::before {
 
 
 /* ========================= */
-/* contact PAGE ONLY */
+/* Resume PAGE ONLY */
 /* ========================= */
 
 
 
-body.contact-page::before {
+body.resume-page::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -637,9 +681,9 @@ body.contact-page::before {
 }
 
 
-/* contact page: narrower container */
-.contact-page .container {
-  max-width: 300px;   /* adjust as needed */
+/* resume page: narrower container */
+.resume-page .container {
+  max-width: 700px;   /* adjust as needed */
   margin-left: auto;   /* center horizontally */
   margin-right: auto;  /* center horizontally */
   width: 90%;          /* optional: responsive width */
