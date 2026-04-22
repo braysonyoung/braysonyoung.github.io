@@ -389,45 +389,281 @@ body.visuals-page::before {
 
 
 
+/* grid for images */
 .visuals-page .container {
-     background: transparent;
-    box-shadow: none;
-    padding: 0;
-    border-radius: 0;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: 60px auto;
+  max-width: 1100px;
+  background: transparent;   /* important */
+  box-shadow: none; 
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 0 10px;
 }
 
-.visuals-page .container > * {
-    grid-column: span 2; /* 6 columns ÷ 3 = 2 each */
-    align-items: start; /* KEY LINE */
+/* PROJECT */
+.project {
+  background: rgba(251, 249, 223, 0.85);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-
-
-
-/* optional: style each project item */
-.visuals-page .container > * {
-    background: rgba(251, 249, 223, 0.796);
-    padding: 10px;
-    border-radius: 6px;
-}
-
-
-.visuals-page .container > * {
-  grid-column: span 2; /* each takes 1/3 of the 6-column grid */
-}
-
-
 
 .project img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+}
+
+.project:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 65%;
+  max-width: 1000px;
+  margin: 5% auto;
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  position: relative;
+}
+
+.modal-body {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.modal-body img {
+  width: 50%;
+  border-radius: 8px;
+}
+
+.modal-text {
+  width: 50%;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 18px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/* PROJECT CONTAINER */
+.project {
+  position: relative;
+}
+
+/* HINT (TOP LEFT, OFFSET OUTSIDE) */
+.hint {
+  opacity: 0;
+  transform: translateY(6px) scale(0.9);
+
+  position: absolute;
+  top: -32px;
+  left: -12px;
+
+  background: rgba(251, 249, 223, 0.95);
+  color: #000;
+
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+
+
+.project.show-hint .hint {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: hintBounce 0.6s ease-out;
+}
+
+@keyframes hintPop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.85);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+@keyframes hintBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.85);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+/* subtle float animation */
+@keyframes floatHint {
+  0%   { transform: translateY(0); opacity: 0.85; }
+  50%  { transform: translateY(-5px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.85; }
+}
+
+
+.project:hover .hint {
+  opacity: 0 !important;
+  transform: translateY(-10px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODAL OVERLAY */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+}
+
+/* modal content matching the grid stuff */
+.modal-content {
+  width: 70%;
+  max-width: 850px;
+  margin: 5% auto;
+
+  background: rgba(250, 248, 226, 0.9);
+  border-radius: 12px;
+  padding: 25px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+
+
+
+
+/* LAYOUT */
+.modal-body {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+/* IMAGE */
+.modal-body img {
+  width: 50%;
+  border-radius: 8px;
+}
+
+/* TEXT */
+.modal-text {
+  width: 50%;
+  color: #000;
+}
+
+/* CLOSE BUTTON */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #000;
+}
+
+/* subtle hover so it feels intentional */
+.close:hover {
+  opacity: 0.6;
+}
+
+
+
+
+
+
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .visuals-page .container {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .modal-body img,
+  .modal-text {
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
+  }
 }
 
 
@@ -458,6 +694,12 @@ body.visuals-page::before {
 
 
 
+
+
+
+
+
+
 /* ========================= */
 /* MUSIC PAGE ONLY  */
 /* ========================= */
@@ -470,22 +712,22 @@ body.music-page::before {
 
   background: url("Backgrounds/backgrounds.002.jpeg") center / cover no-repeat;
 
-  opacity: 0.75;        /* keeps it subtle */
-  filter: blur(0px);   /* makes it feel atmospheric */
+  opacity: 0.75;       
+  filter: blur(0px);   
 }
 
 .music-page .container {
      background: transparent;
     box-shadow: none;
-    padding: 0px;
+    padding: 30px;
     border-radius: 0px;
      display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2.5rem;
     max-width: 1100px;
     width: 100%;
     margin: 60px auto;
-    padding: 0 20px;
+    padding: 10px 20px;
 }
 
 
@@ -496,7 +738,7 @@ body.music-page::before {
 .music-page .container > * {
     background: rgba(251, 249, 223, 0.796);
     padding: 10px;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 
@@ -509,7 +751,7 @@ body.music-page::before {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 
@@ -672,19 +914,19 @@ body.resume-page::before {
 
   background: url("Backgrounds/backgrounds.004.jpeg") center / cover no-repeat;
 
-  opacity: 0.75;        /* keeps it subtle */
-  filter: blur(1px);   /* makes it feel atmospheric */
+  opacity: 0.75;        
+  filter: blur(1px);   
 }
 
 .container {
- padding: 5px 20px 20px 5px; /* container has no padding */
+ padding: 5px 20px 20px 5px; 
 }
 
 
-/* resume page: narrower container */
+/* container */
 .resume-page .container {
-  max-width: 700px;   /* adjust as needed */
-  margin-left: auto;   /* center horizontally */
-  margin-right: auto;  /* center horizontally */
-  width: 90%;          /* optional: responsive width */
+  max-width: 700px;   
+  margin-left: auto;   
+  margin-right: auto;  
+  width: 90%;         
 }
