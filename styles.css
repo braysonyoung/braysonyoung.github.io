@@ -242,9 +242,13 @@ body.home-page::before {
   background: none;       /* remove any background */
   box-shadow: none;       /* remove any shadow from previous container */
   padding: 0;             /* remove padding if container had it */
-  margin: 0;              /* optional: control spacing */
-  font-size: 3rem;        /* example: larger than other pages */
-  text-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.25);
+  font-size: 1.75rem;        /* example: larger than other pages */
+  text-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.15);
+  position: absolute;
+    bottom: 250px; /* adjust */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
 
 /* Remove background/box of main container on home page */
@@ -331,8 +335,8 @@ body:not(.home-page)::before {
 .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 45px;
-  margin-top: 170px;
+  gap: 40px;
+  margin-top: 180px;
 }
 
 
