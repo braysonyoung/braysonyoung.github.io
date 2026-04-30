@@ -29,7 +29,12 @@
   <div class="bg-layer layer2"></div>
   <div class="bg-layer layer3"></div>
   <!-- rest of your content -->
-</body>
+
+    <button class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <nav>
         <a href="index.html" class="active">Home</a>
         <a href="visuals.html">Visuals</a>
@@ -58,6 +63,19 @@
 </div>
         
     </main>
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+        
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('active');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+    </script>
     
 </body>
 </html>

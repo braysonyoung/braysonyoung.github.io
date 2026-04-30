@@ -23,6 +23,11 @@
     </style>
 </head>
 <body class="about-page">
+    <button class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <nav>
         <a href="index.html">Home</a>
         <a href="visuals.html">Visuals</a>
@@ -123,5 +128,18 @@
     <footer>
         &copy; 2026 Brayson Young
     </footer>
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+        
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('active');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

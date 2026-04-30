@@ -23,6 +23,11 @@
     </style>
 </head>
 <body class="music-page">
+    <button class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <nav>
         <a href="index.html">Home</a>
         <a href="visuals.html">Visuals</a>
@@ -43,7 +48,6 @@
     <br> Placeholder for more to come. 
 <br> <br> <br> In the mean time, check out one of the original songs
 on my upcoming album <br> 
-<-----
 </p>
 
 
@@ -61,5 +65,18 @@ on my upcoming album <br>
     <footer>
         &copy; 2026 Brayson Young
     </footer>
-</body class="music-page">
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+        
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('active');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+    </script>
+</body>
 </html>

@@ -23,6 +23,11 @@
     </style>
 </head>
 <body class="visuals-page">
+    <button class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
     <nav>
         <a href="index.html">Home</a>
         <a href="visuals.html" class="active">Visuals</a>
@@ -31,7 +36,7 @@
         <a href="resume.html">Resume</a>
     </nav>
     <header>
-        <h1>Visual Design</h1>
+        <h1>Visuals</h1>
     </header>
    <main class="container">
 
@@ -301,6 +306,18 @@ window.addEventListener("click", (e) => {
   }
 });
 
+function toggleMenu() {
+    document.querySelector('nav').classList.toggle('active');
+    document.querySelector('.hamburger').classList.toggle('active');
+}
+
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('active');
+    });
+});
+
 </script>
 
 
@@ -330,5 +347,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-</body 
+</body>
 </html>
