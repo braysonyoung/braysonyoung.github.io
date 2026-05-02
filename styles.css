@@ -20,6 +20,21 @@ body {
     padding: 10px;
 }
 
+/* Home button */
+.home-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: #000;
+    font-size: 24px;
+}
+
 .hamburger span {
     display: block;
     width: 28px;
@@ -89,6 +104,12 @@ body {
         top: 10px;
     }
     
+    .home-btn {
+        display: block;
+        position: absolute;
+        top: 10px;
+    }
+    
     body nav {
         position: fixed;
         top: 0;
@@ -123,7 +144,7 @@ body {
         line-height: 1;
         margin-top: 200px;
     }
-    
+
     /* Contact icons - fit on mobile */
     .contact-icons {
         gap: 20px;
@@ -159,7 +180,20 @@ body {
     main {
         padding: 5px;
     }
-    
+
+    .home-page .home-mobile-image {
+        display: block;
+        position: relative;
+        z-index: 10;
+        width: min(76vw, 272px);
+        max-width: 100%;
+        margin: 20px auto 0;
+        padding: 10px;
+        background: rgba(251, 249, 223, 0.796);
+        border-radius: 18px;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+    }
+
     /* About page - stack images under text on mobile */
     body.about-page .container {
         display: flex;
@@ -178,6 +212,12 @@ body {
         width: 100%;
         grid-column: auto;
         box-sizing: border-box;
+    }
+}
+
+@media (min-width: 769px) {
+    .home-page .home-mobile-image {
+        display: none;
     }
 }
 
@@ -349,9 +389,10 @@ header h1 {
 /* Mobile override for home page title */
 @media (max-width: 768px) {
     .home-page header h1 {
-        font-size: 14vw !important;
-        max-width: 100%;
-        width: 100%;
+        font-size: 18vw !important;
+        max-width: 95vw;
+        width: 95vw;
+        padding: 0;
     }
 }
 
@@ -592,21 +633,26 @@ body.visuals-page::before {
 
 /* PROJECT */
 .project {
-  background: rgba(251, 249, 223, 0.85);
-  padding: 10px;
-  border-radius: 8px;
   cursor: pointer;
-
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+  border: none;
+  background: transparent;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
 }
 
 .project img {
   width: 100%;
   border-radius: 6px;
   display: block;
+  background: rgba(251, 249, 223, 0.85);
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.project:hover {
+.project:hover img {
   transform: scale(1.05);
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
@@ -852,6 +898,31 @@ body.visuals-page::before {
   .modal-body img,
   .modal-text {
     width: 100%;
+  }
+
+  /* Fix variable image heights on mobile */
+  .visuals-page .project {
+    height: auto;
+    padding: 0;
+    background: transparent;
+  }
+
+  .visuals-page .project img {
+    width: 100%;
+    height: auto;
+    background: rgba(251, 249, 223, 0.85);
+    border-radius: 6px;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* Mobile hover effect - apply to image, not container */
+  .visuals-page .project:active img,
+  .visuals-page .project img:hover,
+  .visuals-page .project img:active {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
   }
 }
 
