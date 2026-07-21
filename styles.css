@@ -355,9 +355,17 @@ animation: fadeIn 2s ease;
 
 
 
+@media (max-width: 1220px) {
 
+  .back-to-top,
 
+  .corner-menu {
 
+    display: none !important;
+
+  }
+
+}
 
 
 
@@ -739,6 +747,46 @@ img {
 
 
 
+
+
+
+
+
+
+
+
+.masthead .eyebrow-full {
+
+  display: inline;
+
+}
+
+.masthead .eyebrow-short {
+
+  display: none;
+
+}
+
+@media (max-width: 768px) {
+
+  .masthead .eyebrow-full {
+
+    display: none;
+
+  }
+
+  .masthead .eyebrow-short {
+
+    display: inline;
+
+  }
+
+}
+
+
+
+
+
 .masthead-page {
 
   position: relative;
@@ -1063,7 +1111,7 @@ img {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 6rem;
+  width: 1rem;
   pointer-events: none;
 }
 
@@ -1084,7 +1132,14 @@ img {
   scroll-behavior: smooth;
   padding-bottom: 0.5rem;
   scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
 }
+
+
+
+
+
+
 
 .carousel-track::-webkit-scrollbar {
   display: none;
@@ -1106,13 +1161,47 @@ img {
   height: 1.8rem;
 }
 
+.carousel-btn {
+
+  border: none;
+
+  background: transparent;
+
+  color: #111111;
+
+  cursor: pointer;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0.25rem;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+
+}
+
+.carousel-btn.hidden {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+}
+
 .carousel-btn:hover {
   background: rgba(17, 17, 17, 0.05);
 }
 
 .poster-carousel .poster-card {
   flex: 0 0 auto;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1191,6 +1280,40 @@ img {
   height: auto;
 }
 
+
+@media (max-width: 768px) {
+
+  .album-layout {
+
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+  }
+
+  .album-cover {
+
+    order: 1;
+
+  }
+
+  .left-list {
+
+    order: 2;
+
+  }
+
+  .right-list {
+
+    order: 3;
+
+  }
+
+}
+
+
+
+
 .streaming-links {
   display: flex;
   justify-content: center;
@@ -1242,6 +1365,27 @@ img {
   line-height: 1.6;
   font-size: 1rem;
 }
+
+
+@media (max-width: 768px) {
+
+  .spotify-embed-layout {
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+
+  }
+
+  .spotify-embed-container iframe {
+
+    min-height: 352px;
+
+  }
+
+}
+
+
 
 .poster-gallery {
   margin-top: 3rem;
@@ -1561,5 +1705,140 @@ img {
 
 
 
+
+
+
+
+
+/* everythign aligned to center on mobile */
+
+@media (max-width: 768px) {
+
+  /* Center all editorial/content text */
+
+  .feature-copy,
+
+  .feature-reverse,
+
+  .feature,
+
+  .essay,
+
+  .album-section,
+
+  .album-subtitle,
+
+  .spotify-text-box,
+
+  .streaming-links,
+
+  .track-list,
+
+  .poster-card,
+
+  .poster-carousel-header,
+
+  .about-content,
+
+  .contact-content {
+
+    text-align: center;
+
+  }
+
+  /* Center flex/grid children */
+
+  .feature-copy,
+
+  .track-list,
+
+  .spotify-text-box,
+
+  .streaming-links {
+
+    align-items: center;
+
+  }
+
+  /* Fix your album left/right text */
+
+  .left-list,
+
+  .right-list {
+
+    text-align: center;
+
+    align-items: center;
+
+  }
+
+  /* Fix inline right-aligned paragraph */
+
+  .album-layout .feature-copy p[style] {
+
+    text-align: center !important;
+
+  }
+
+
+
+
+
+  @media (max-width: 768px) {
+
+  .feature,
+
+  .feature-reverse {
+
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    align-items: center;
+
+  }
+
+  .feature-copy,
+
+  .feature-reverse .feature-copy {
+
+    text-align: center;
+
+  }
+
+}
+
+
+.eyebrow .eyebrow-short {
+
+  display: none;
+
+}
+
+.eyebrow .eyebrow-full {
+
+  display: inline;
+
+}
+
+@media (max-width: 768px) {
+
+  .eyebrow .eyebrow-full {
+
+    display: none;
+
+  }
+
+  .eyebrow .eyebrow-short {
+
+    display: inline;
+
+  }
+
+}
+
+
+
+}
 
 

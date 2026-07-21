@@ -11,7 +11,13 @@
 
 <header class="masthead masthead-page">
         <div class="masthead-inner">
-          <p class="eyebrow">issue 001: rhythm and image</p>
+          <p class="eyebrow">
+
+      <span class="eyebrow-full">issue 001: rhythm and image</span>
+
+     <span class="eyebrow-short">issue 001</span>
+
+        </p>
         
         <div class="contact-links" aria-label="Contact links">
           <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
@@ -25,7 +31,13 @@
 
 <header class="masthead masthead-fixed">
         <div class="masthead-inner">
-          <p class="eyebrow">issue 001: rhythm and image</p>
+          <p class="eyebrow">
+
+      <span class="eyebrow-full">issue 001: rhythm and image</span>
+
+     <span class="eyebrow-short">issue 001</span>
+
+        </p>
         
         <div class="contact-links" aria-label="Contact links">
           <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
@@ -132,11 +144,15 @@
 <p>Based in Seattle, WA</p>
 
 
-<p class="contact-credit">
-Download CV
-<br>
+<a class="contact-credit" href="Assets/Brayson Young Resume.pdf.pdf" download>
+
+  Download Resume
+
+  <br>
+
   <img src="Assets/download_grey.svg" width="19" height="19" alt="Download CV">
-</p>
+
+</a>
 
   </div>
 
@@ -407,9 +423,9 @@ Download CV
             <br>
               <strong>San Diego, CA</strong>
             <br><br>
-            <strong>03 - 09 / 2026</strong>
-             <br> 
             Independent Release
+            <br>
+            <strong>03 - 09 / 2026</strong>
             <br><br>
             Written,
             <br>
@@ -497,21 +513,6 @@ Download CV
           Description of the album. Description of the album. 
           Description of the album. Description of the album. 
           Description of the album. Description of the album. 
-
-          <br><br>
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-          More description of the album. More description of the album.
-        
         </p>
       </section>
 
@@ -637,6 +638,18 @@ Download CV
               <article class="poster-card">
                 <img src="Images/AcuraNSX.jpeg" alt="Acura NSX poster" />
               </article>
+
+              <article class="poster-card">
+                <img src="Images/anothercooldrums.jpg" alt="Acura NSX poster" />
+              </article>
+              <article class="poster-card">
+                <img src="Images/braysoncool2.jpg" alt="Acura NSX poster" />
+              </article>
+              
+
+
+
+
             </div>
           </div>
           <button class="carousel-btn carousel-next" aria-label="Next poster">
@@ -1372,48 +1385,86 @@ if (menuContactButton) {
 document.addEventListener("DOMContentLoaded", () => {
 
 
+
   const carousel =
+
     document.querySelector(".poster-carousel .carousel-track");
 
-
   const prevButton =
+
     document.querySelector(".carousel-prev");
 
-
   const nextButton =
-    document.querySelector(".carousel-next");
 
+    document.querySelector(".carousel-next");
 
   if (!carousel || !prevButton || !nextButton) return;
 
 
 
+  window.addEventListener("load", () => {
+
+  carousel.scrollTo({
+
+    left: 0,
+
+    behavior: "instant"
+
+  });
+
+});
+
+
+
   function getScrollAmount() {
 
-
     const card =
-      carousel.querySelector(".poster-card");
 
+      carousel.querySelector(".poster-card");
 
     if (!card) return 244;
 
-
     const gap =
-      parseInt(
-        window.getComputedStyle(carousel).gap,
-        10
-      ) || 24;
 
+      parseInt(
+
+        window.getComputedStyle(carousel).gap,
+
+        10
+
+      ) || 24;
 
     return card.offsetWidth + gap;
 
+  }
+
+  function updateButtons() {
+
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+  if (carousel.scrollLeft <= 5) {
+
+    prevButton.classList.add("hidden");
+
+  } else {
+
+    prevButton.classList.remove("hidden");
 
   }
 
+  if (carousel.scrollLeft >= maxScroll - 5) {
 
+    nextButton.classList.add("hidden");
+
+  } else {
+
+    nextButton.classList.remove("hidden");
+
+  }
+
+}
 
   prevButton.addEventListener("click", () => {
-
 
     carousel.scrollBy({
 
@@ -1423,13 +1474,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
   });
 
-
-
   nextButton.addEventListener("click", () => {
-
 
     carousel.scrollBy({
 
@@ -1439,10 +1486,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
   });
 
+  // Update while scrolling
 
+  carousel.addEventListener("scroll", updateButtons);
+
+  // Update on resize
+
+  window.addEventListener("resize", updateButtons);
+
+  // Set initial state
+
+  updateButtons();
 
 });
 
