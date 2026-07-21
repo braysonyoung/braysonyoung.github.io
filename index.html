@@ -1,84 +1,1465 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Young+Serif&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brayson Young</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            background: none;
-            color: #000000;
-        }
-        nav a {
-            color: hsla(0, 0%, 0%, 0.774);
-        }
-        nav a.active {
-            background: #020304;
-            box-shadow: 0 1px 4px rgba(42,93,159,0.15);
-        }
-    </style>
-</head>
-<body class="home-page">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
 
-  <div class="bg-layer layer1"></div>
-  <div class="bg-layer layer2"></div>
-  <div class="bg-layer layer3"></div>
-  <!-- rest of your content -->
 
-    <button class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="visuals.html">Visuals</a>
-        <a href="music.html">Music</a>
-        <a href="about.html">About</a>
-        <a href="resume.html">Resume</a>
-    </nav>
-    <header>
-        <h1 class="home-title" >Brayson<br>Young</h1>
-        <img class="home-mobile-image" src="Images/BraysonDrums1.jpg" alt="Brayson Young">
-        <h2 class="home-subtitle"></h2>
-    </header>
-    <main class="container">
-   
-        <div class="contact-icons">
-  <a href="mailto:braysonyoung@icloud.com">
-    <i class="fa-solid fa-envelope"></i>
-  </a>
-
-  <a href="https://instagram.com/brayson.young" target="_blank">
-    <i class="fa-brands fa-instagram"></i>
-  </a>
-
-  <a href="https://linkedin.com/in/braysonyoung" target="_blank">
-    <i class="fa-brands fa-linkedin"></i>
-  </a>
-</div>
+<header class="masthead masthead-page">
+        <div class="masthead-inner">
+          <p class="eyebrow">issue 001: rhythm and image</p>
         
-    </main>
-    <script>
-        function toggleMenu() {
-            document.querySelector('nav').classList.toggle('active');
-            document.querySelector('.hamburger').classList.toggle('active');
-        }
+        <div class="contact-links" aria-label="Contact links">
+          <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
+            contact
+          </button>
+        </div>
+      </div>
+
+</header>
+
+
+<header class="masthead masthead-fixed">
+        <div class="masthead-inner">
+          <p class="eyebrow">issue 001: rhythm and image</p>
         
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('nav').classList.remove('active');
-                document.querySelector('.hamburger').classList.remove('active');
-            });
-        });
-    </script>
+        <div class="contact-links" aria-label="Contact links">
+          <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
+            contact
+          </button>
+        </div>
+      </div>
+
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+       <div class="contact-backdrop" hidden></div>
+
+<section class="contact-overlay" id="contact-overlay" hidden>
+
+  <button class="contact-close" aria-label="Close contact">
+
+    <img src="Assets/close.svg" alt="Close">
+
+  </button>
+
+  <div class="contact-content">
+
+    <p class="contact-label">
+
+      CONTACT
+<br>
+
+    </p>
+
+    <h2>
+
+      I'd love to hear from you.
+
+    </h2>
+
+
+
+
+<p>
+  Email:
+  <a href="mailto:braysonyoung@icloud.com" class="contact-item">
+
+  <span>braysonyoung@icloud.com</span>
+
+</a>
+
+
+
+<br>
+  Instagram:
+  <a href="https://www.instagram.com/brayson.young/" target="_blank" rel="noopener noreferrer">
+
+    @brayson.young
+
+</a>
+<br>
+  LinkedIn:
+  <a href="https://www.linkedin.com/in/braysonyoung/" target="_blank" rel="noopener noreferrer">
+
+    in/braysonyoung
+
+</a>
+<br>
+  Music:
+  <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank" rel="noopener noreferrer">
+
+  "Brayson Young"
+
+</a>
+
+</p>
+
+<p>Based in Seattle, WA</p>
+
+
+<p class="contact-credit">
+Download CV
+<br>
+  <img src="Assets/download_grey.svg" width="19" height="19" alt="Download CV">
+</p>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+    <main class="magazine">
+
+      
+
+
+
+
+
+
+
+
+
+<h1>Brayson Young</h1>
+      
+
+      <section class="feature">
+        <img src="Images/anothercooldrums3.jpg" alt="Brayson Young at the drums" />
+        <div class="feature-copy">
+          <h2>About</h2>
+          <p>
+            A musician, producer, and visual designer based in Seattle, 
+            artist Brayson Young is interested in 
+            exploring the relationship between sound, image, and narrative. 
+            "My work is shaped by improvisation, whether I’m performing, 
+            designing visuals, or building this portfolio from scratch 
+            instead of relying on templates.'' he says. I’m drawn to learning new 
+            disciplines and finding unexpected ways for them to intersect. 
+            <br><br>
+            Beyond creating, he's equally interested in the systems behind the 
+            work - the music industry, the creative process, and the ideas that 
+            shape both. More on that later. </p>
+          <p>As he's originally from San Diego, Young has many artistic influences. 
+            By extracting bits and pieces of material, what starts as instinct becomes form. 
+            Each photograph, performance, and composition carries a private pulse made public.</p>
+        </div>
+      </section>
+
+
+      <section class="essay">
+        <h2>"I’ve been involved with music for 15 years. 
+          That's nearly my whole life."</h2>
+        <p> "I perform and record primarily as a 
+          drummer, but bass, keyboards, and other instruments
+          have become just as important to my creative process." said 
+          Young when asked about his relationship with music. 
+          "Learning multiple instruments has changed the way I hear music. 
+          It allows me to think beyond rhythm and consider how every 
+          part contributes to the overall story."
+          Currently, Young is working on a full-length solo studio 
+          album that showcases not only his drumming, but also his 
+          songwriting, production, and multi-instrumental abilities. 
+          Every angle of the project - from composition and recording 
+          to mixing and visual presentation - is an opportunity to 
+          develop a more complete artistic identity. Alongside 
+          the album, he has also produced several remixes of 
+          popular songs, using familiar material as a way to 
+          experiment with new arrangements and 
+          genre shifts while developing his own musical voice. 
+      </section>
+
+      
+      <section class="album-section">
+        
+        <div class="album-layout">
+          <div class="feature-copy">
+            <p style="text-align: right;">
+
+          <strong>
+          What does the beginning of a project look like? 
+      
+          </strong>
+
+
+          <br><br>
+
+
+          "There’s rarely a clear starting point. I try not to force 
+          direction too early, and I don't have a set process.
+          Instead of chasing a finished idea, I like to spend time listening 
+          to what's already there. With some patience, the pieces begin to relate 
+          to one another and my project reveals what it wants to become. 
+          I guess I prefer the process of discovery over the pressure of a deadline."
+<br><br>
+              For Young, recording has become more than simply documenting ideas. 
+              It is a space to discover new directions. 
+              Much of his creative process begins with improvisation before 
+               evolving into fully realized songs through 
+              layering and experimentation.
+            </p>
+          </div>
+
+          <div class="album-cover">
+            <img src="Images/headshot cool.jpg" alt="Studio workspace and instruments" />
+          </div>
+
+          <div class="feature-copy">
+            <p>
+            <strong>
+          Where do you spend most of your time creating?
+          </strong>
+          <br><br>
+        "Well, I have a home studio. I can wake up and record at any time. 
+          My setup has expanded 
+          and grown with me over the years, and as a result, has 
+          helped me develop my sound."  
+        <br><br>
+        The studio serves as both a workspace and a place of 
+        constant learning. Beyond recording music, 
+        Young enjoys experimenting with production techniques, 
+        analog gear, signal routing, and the technical side of 
+        audio engineering. That curiosity continues to 
+        influence not only how his music sounds, but also 
+        how he approaches problem-solving and creativity as a whole.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="essay">
+        <strong>
+        With a debut solo album in progress, Brayson says the next chapter is already taking shape.
+        </strong>
+
+        <br><br>
+        Whether performing live or working behind the scenes in the studio, 
+        Young approaches each environment differently. On stage, his 
+        focus is on serving the music, responding to the musicians around 
+        him, and creating an experience that feels energetic and genuine 
+        for the audience. In the studio, his attention shifts toward detail, 
+        precision, and the overall listening experience, carefully 
+        shaping performances one layer at a time. Together, these two 
+        perspectives continue to define his musicianship, allowing 
+        him to move comfortably between performance, production, 
+        and songwriting while remaining committed to continual growth as an artist.</p>
+</section>
+
+<br>
+      <section class="feature feature-reverse">
+        <div class="feature-copy">
+          <h2>Visuals & The Industry </h2>
+          <p>When asked about other mediums of art he enjoys, 
+            he said, "I've been told my visual work complements the innovation I bring to music. 
+            I approach visual work with creativity and strategy." 
+            Beyond graphic design, 
+            he leverages an understanding of certain aspects of an industry, 
+            audience behaviors, and inherent human biases to create an effective 
+            visual story. All of the 
+            artist images and main content of the posters shown below (except J. Cole) were 
+            taken by him at the show the poster is promoting. Additionally, he enjoys leaning into 
+            his artistic side to create works like social media content, promotion for his own shows, 
+            and even the images used in this portfolio.  
+            <br><br>
+
+            <strong>"I believe this 
+            makes the work feel <br> more alive and real."</strong>
+             <p>Every poster, social 
+            media post, or short form video is built on a foundation: 
+            artistic vision backed by the strategy and knowledge of how to make it work.</p>
+      
+        </div>
+        <img src="Images/braysondrums1cool3.jpg" alt="art" />
+      </section>
+
+
+      <section class="essay">
+        <p>
+          
+          <h2>
+            What's the big picture?
+          </h2>
+          
+          My interest in how the music industry works has led me to explore how 
+          marketing and communications intersects with creative output, said Young. 
+          "Ultimately, I want to learn how to better share my work and connect 
+          with people who will enjoy it." 
+          <br><br>
+          His creative background informs his approach; 
+          from musical storytelling to visual branding, he always strives to 
+          combine strategy with artistic expression. Rather than seeing creativity and 
+          strategy as separate disciplines, Young views them as parts of the same process. 
+          Every project begins with an idea, but how that idea is presented, 
+          communicated, and experienced is just as important as the work itself. 
+          Whether through a live performance, a recording session, or a visual 
+          identity, he believes thoughtful presentation can deepen the 
+          connection between an artist and their audience.  
+          <br><br>
+
+          <strong>
+          “My big picture goal is to keep discovering, creating, and growing as an artist.
+          I want to share work that feels authentic, continues to evolve, and gives people 
+          something meaningful to connect with.”
+          </strong>
+
+          <br><br>
+          Brayson is currently pursuing 
+          a dual degree in communications and jazz studies at the 
+          University of Washington while building himself in the music scene 
+          as a performer and producer. Alongside his studies, he continues to 
+          write original music and collaborate with other artists. 
+          His long-term goal extends beyond releasing music alone - it is 
+          to build a body of work where sound, visuals, and storytelling 
+          exist together as one cohesive creative language.
+
+          
+        </p>
+
+      </section>
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
     
-</body>
+
+
+      <section class="album-section">
+        <h2>Circle of Life</h2>
+        <p class="album-subtitle">A 2026 Debut Album </p>
+
+
+
+
+
+
+        <div class="album-layout">
+          <div class="track-list left-list">
+            <p>
+            Recorded
+            <br>
+              <strong>San Diego, CA</strong>
+            <br><br>
+            <strong>03 - 09 / 2026</strong>
+             <br> 
+            Independent Release
+            <br><br>
+            Written,
+            <br>
+            Performed,
+            <br>
+            & Produced
+            <br>
+            <strong>Brayson Young</strong>
+
+            </p>
+          </div>
+
+
+
+
+
+
+
+          <div class="album-cover">
+            <div class="album-visual">
+              <img src="Images/drumscool.heic" alt="Circle of Life album cover placeholder" />
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+          <div class="track-list right-list">
+
+            <a href="#" class="track-item">
+              <span class="play-icon">▶</span>
+              <span>01  -  name</span>
+            </a>
+            <a href="#" class="track-item">
+              
+              <span>02  -  name</span>
+            </a>
+            <a href="#" class="track-item">
+              
+              <span>03  -  name</span>
+            </a>
+            <a href="#" class="track-item">
+              
+              <span>04  -  lkjasdf</span>
+            </a>
+            <a href="#" class="track-item">
+              
+              <span>05  -  uihweafjk</span>
+            </a>
+            <a href="#" class="track-item">
+              
+              <span>06  -  aksjv</span>
+            </a>
+            <a href="#" class="track-item">
+              
+              <span>07  -  oaijf</span>
+            </a>
+            <a href="#" class="track-item">
+              
+              <span>08  -  alkvjnewa</span>
+            </a>
+          </div>
+        </div>
+
+      
+      </section>
+
+      <section class="essay">
+        <p>
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album.
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+          Description of the album. Description of the album. 
+
+          <br><br>
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+          More description of the album. More description of the album.
+        
+        </p>
+      </section>
+
+ 
+  
+
+  
+  
+
+        <section class="spotify-embed-section">
+          <div class="spotify-embed-layout">
+            <div class="spotify-embed-container">
+              <iframe data-testid="embed-iframe" style="border-radius:0px" src="https://open.spotify.com/embed/album/1EE8dP3St4w48JrDddFMz1?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="spotify-text-box">
+              <div class="streaming-links">
+          <a href="#">Spotify</a>
+          <a href="#">Apple Music</a>
+          <a href="#">YouTube Music</a>
+        </div>
+        <br><br>
+              <p>Circle of Life is available now on every major streaming service!
+                <br> <br>
+                Listen to the full album and follow the release journey as it continues to grow.
+                Circle of Life is available now on Spotify, Apple Music, YouTube Music, and every other major streaming service. 
+                Listen to the full album and follow the release journey as it continues to grow.
+              
+              
+              </p>
+            </div>
+          </div>
+        </section>
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="essay">
+          <h2>“Visual design has become an extension of my 
+          relationship with music. Creating a poster is a way 
+          to capture the feeling of a performance before 
+          anyone even hears the first note.”</h2>
+
+          <p> When asked about his approach to visual work, 
+          Young described poster design as another form of 
+          storytelling. “A lot of the posters I create are 
+          connected to music - whether they are for my own 
+          shows, projects, or performances from other artists. 
+          Even when I’m designing for someone else, I’m trying 
+          to understand the energy of the event and translate 
+          that into something visual.”
+
+          </p>
+
+
+
+
+
+      <section class="poster-carousel">
+        <div class="poster-carousel-header">
+        </div>
+        <div class="carousel-wrapper">
+          <button class="carousel-btn carousel-prev" aria-label="Previous poster">
+            <img src="Assets/arrow_left.svg" alt="Left arrow" />
+          </button>
+          <div class="carousel-track-container">
+            <div class="carousel-track">
+              <article class="poster-card">
+                <img src="Images/JackKaysPoster.png" alt="Jack Kays poster" />
+              </article>
+              <article class="poster-card">
+                <img src="Images/RonCarterPoster.jpeg" alt="Ron Carter poster" />
+              </article>
+              <article class="poster-card">
+                <img src="Images/SampleJCole.png" alt="Sample J. Cole poster" />
+              </article>
+              <article class="poster-card">
+                <img src="Images/SamplePostFeel.png" alt="Sample Post Feel poster" />
+              </article>
+              <article class="poster-card">
+                <img src="Images/SamplePostLoud.png" alt="Sample Post Loud poster" />
+              </article>
+              <article class="poster-card">
+                <img src="Images/VudapestVermillion.png" alt="Vudapest Vermillion poster" />
+              </article>
+              <article class="poster-card">
+                <img src="Images/AcuraNSX.jpeg" alt="Acura NSX poster" />
+              </article>
+            </div>
+          </div>
+          <button class="carousel-btn carousel-next" aria-label="Next poster">
+            <img src="Assets/arrow_right.svg" alt="Right arrow" />
+          </button>
+        </div>
+      </section>
+
+
+
+
+
+          <p>
+<br>
+While some pieces are created to promote his own performances, 
+much of Brayson's poster work comes from a desire to experiment 
+and support the creative communities around him. Through creative 
+imagery and composition, he uses each design as an opportunity to 
+explore new ideas and develop his visual language. Like songwriting, 
+the process often begins with an instinctive idea before evolving 
+through experimentation and refinement. For Young, posters are not
+ simply promotional materials, but another way to build atmosphere, 
+ tell a story, and connect people with music.
+
+ </p>
+      </section>
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="feature">
+        <img src="Images/braysondrums2 cool2.jpg" alt="Brayson Young at the drums" />
+        <div class="feature-copy">
+          <h2>So, what comes next?</h2>
+          <p>
+
+            If someone spends a little longer listening, looking, or 
+            thinking than they expected to, then I’ve done my job, said Young.
+          What begins as just an idea evolves into a signature sound. 
+            So far, the work shown here 
+            is just a moment in an evolving process, whether it be through 
+            music, photography, or anything else that comes next.
+            <br><br>
+            "I don’t think creativity has a finish line. 
+            Every project changes the way I approach the next one, 
+            whether it’s a song, an album cover, or something completely 
+            different. As for right now, I’m focused on continuing to
+             learn and make work that feels honest." </p>
+        </div>
+      </section>
+
+
+
+
+
+
+<section class="essay">
+          <h2>“I can't see where this path leads, but it's where I'll go.”</h2>
+
+          <p> "Not knowing" can be uncomfortable. In creative work where 
+            there are no guarantees or clear directions to follow, it's easy 
+            to become attached to a tangible destination or outcome. 
+            Yet, it’s that uncertainty that 
+            leaves room for discovery, allowing new ideas to emerge 
+            without being confined by expectations.
+
+            <br><br>
+
+            <strong>
+            Every body of work begins with some sort of absence. Without it, 
+            there is no space for creativity. 
+            True art comes with the realization that 
+            what has yet to be discovered is often more important than what
+            is already had.  
+            </strong>
+          </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="footer-inner">
+
+    <button class="about-toggle" type="button">
+
+    <p class="issue-end">
+      about
+    </p>
+    </button>
+
+    <p class="issue-end">
+      end of issue 001
+    </p>
+
+    <button class="contact-toggle footer-contact" type="button">
+
+    <p class="issue-end">
+      contact
+    </p>
+    </button>
+
+  </div>
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button class="back-to-top" aria-label="Back to top">
+  <span class="reading-percentage">0%</span>
+</button>
+
+
+
+<div class="corner-menu">
+  <div class="menu-items">
+
+    <!--about-->
+<button class="menu-icon about-menu-button" aria-label="About">
+      <img src="Assets/about.svg" alt="About">
+    </button>
+    <!-- Contact -->
+    <button class="menu-icon contact-menu-button" aria-label="Contact">
+      <img src="Assets/mail.svg" alt="Contact">
+    </button>
+    <!-- Share -->
+    <button class="menu-icon share-button" aria-label="Share">
+      <img src="Assets/send.svg" alt="Share">
+    </button>
+    
+  </div>
+  <!-- Hamburger -->
+  <button class="menu-toggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+
+
+
+
+
+
+
+<!-- About Overlay -->
+
+<div class="about-backdrop" hidden></div>
+
+<section class="about-overlay" id="about-overlay" hidden>
+
+  <button class="about-close" aria-label="Close about">
+
+  <img src="Assets/close.svg" alt="Close about">    
+
+  </button>
+
+  <div class="about-content">
+
+    <p class="about-label">
+
+      about
+
+    </p>
+
+    <h2>
+
+      Issue 001:
+      Rhythm and Image
+
+    </h2>
+
+    <p>
+
+      This website is a digital publication exploring the
+
+      relationship between music, visual art, and creative
+
+      process. It also serves as a portfolio for my work.
+
+    </p>
+
+    <p>
+
+      This issue documents experimentation, collaboration,
+
+      and the ideas behind the work.
+
+    </p>
+
+    <p>
+
+      Created and designed by Brayson Young.
+
+    </p>
+
+    <p class="about-credit">
+
+      © 2026 Brayson Young
+      <br>
+      All Rights Reserved
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+
+
+    <script>
+
+/* =========================
+   SEMI-STICKY MASTHEAD
+========================= */
+
+const fixedHeader = document.querySelector(".masthead-fixed");
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+
+  if (!fixedHeader) return;
+
+  const currentScroll = window.scrollY;
+
+  if (currentScroll < 200) {
+
+    fixedHeader.classList.remove("visible");
+
+  } 
+  
+  else if (currentScroll < lastScroll) {
+
+    fixedHeader.classList.add("visible");
+
+  } 
+  
+  else {
+
+    fixedHeader.classList.remove("visible");
+
+  }
+
+  lastScroll = currentScroll;
+
+});
+
+
+
+/* =========================
+   YEAR
+========================= */
+
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+
+  yearElement.textContent = new Date().getFullYear();
+
+}
+
+
+
+/* =========================
+   CONTACT POPUP
+========================= */
+
+const contactButtons = document.querySelectorAll(".contact-toggle");
+
+const contactOverlay = document.querySelector("#contact-overlay");
+
+const contactBackdrop = document.querySelector(".contact-backdrop");
+
+const contactClose = document.querySelector(".contact-close");
+
+
+function openContact() {
+
+  if (!contactOverlay || !contactBackdrop) return;
+
+  contactOverlay.hidden = false;
+
+  contactBackdrop.hidden = false;
+
+
+  setTimeout(() => {
+
+    contactOverlay.classList.add("visible");
+
+    contactBackdrop.classList.add("visible");
+
+  }, 10);
+
+}
+
+
+function closeContact() {
+
+  if (!contactOverlay || !contactBackdrop) return;
+
+
+  contactOverlay.classList.remove("visible");
+
+  contactBackdrop.classList.remove("visible");
+
+
+  setTimeout(() => {
+
+    contactOverlay.hidden = true;
+
+    contactBackdrop.hidden = true;
+
+  }, 450);
+
+}
+
+
+contactButtons.forEach(button => {
+
+  button.addEventListener("click", openContact);
+
+});
+
+
+if (contactClose) {
+
+  contactClose.addEventListener("click", closeContact);
+
+}
+
+
+if (contactBackdrop) {
+
+  contactBackdrop.addEventListener("click", closeContact);
+
+}
+
+
+if (contactOverlay) {
+
+  contactOverlay.addEventListener("click", (event) => {
+
+    if (event.target === contactOverlay) {
+
+      closeContact();
+
+    }
+
+  });
+
+}
+
+
+
+/* =========================
+   ABOUT POPUP
+========================= */
+
+const aboutButtons = document.querySelectorAll(".about-toggle");
+
+const aboutMenuButton = document.querySelector(".about-menu-button");
+
+if (aboutMenuButton) {
+
+  aboutMenuButton.addEventListener("click", openAbout);
+
+}
+
+const aboutOverlay = document.querySelector("#about-overlay");
+
+const aboutBackdrop = document.querySelector(".about-backdrop");
+
+const aboutClose = document.querySelector(".about-close");
+
+
+function openAbout() {
+
+  if (!aboutOverlay || !aboutBackdrop) return;
+
+
+  aboutOverlay.hidden = false;
+
+  aboutBackdrop.hidden = false;
+
+
+  setTimeout(() => {
+
+    aboutOverlay.classList.add("visible");
+
+    aboutBackdrop.classList.add("visible");
+
+  }, 10);
+
+}
+
+
+function closeAbout() {
+
+  if (!aboutOverlay || !aboutBackdrop) return;
+
+
+  aboutOverlay.classList.remove("visible");
+
+  aboutBackdrop.classList.remove("visible");
+
+
+  setTimeout(() => {
+
+    aboutOverlay.hidden = true;
+
+    aboutBackdrop.hidden = true;
+
+  }, 450);
+
+}
+
+
+aboutButtons.forEach(button => {
+
+  button.addEventListener("click", openAbout);
+
+});
+
+
+if (aboutClose) {
+
+  aboutClose.addEventListener("click", closeAbout);
+
+}
+
+
+if (aboutBackdrop) {
+
+  aboutBackdrop.addEventListener("click", closeAbout);
+
+}
+
+
+if (aboutOverlay) {
+
+  aboutOverlay.addEventListener("click", (event) => {
+
+    if (event.target === aboutOverlay) {
+
+      closeAbout();
+
+    }
+
+  });
+
+}
+
+
+
+/* =========================
+   ESCAPE CLOSES POPUPS
+========================= */
+
+document.addEventListener("keydown", (event) => {
+
+  if (event.key === "Escape") {
+
+    closeAbout();
+
+    closeContact();
+
+  }
+
+});
+
+
+
+/* =========================
+   BACK TO TOP + CORNER MENU
+========================= */
+
+const backToTop = document.querySelector(".back-to-top");
+
+const cornerMenu = document.querySelector(".corner-menu");
+
+
+window.addEventListener("scroll", () => {
+
+
+  if (window.scrollY > 600) {
+
+
+    if (backToTop) {
+
+      backToTop.classList.add("visible");
+
+    }
+
+
+    if (cornerMenu) {
+
+      cornerMenu.classList.add("visible");
+
+    }
+
+
+  } 
+  
+  else {
+
+
+    if (backToTop) {
+
+      backToTop.classList.remove("visible");
+
+    }
+
+
+    if (cornerMenu) {
+
+      cornerMenu.classList.remove("visible");
+
+    }
+
+
+  }
+
+
+});
+
+
+
+if (backToTop) {
+
+  backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+  });
+
+}
+
+
+
+/* =========================
+   READING PERCENTAGE
+========================= */
+
+const percentageText = document.querySelector(".reading-percentage");
+
+
+function updateReadingProgress() {
+
+  if (!percentageText) return;
+
+
+  const scrollTop = window.scrollY;
+
+  const documentHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+
+  const percentage =
+    Math.round((scrollTop / documentHeight) * 100);
+
+
+  percentageText.textContent = percentage + "%";
+
+}
+
+
+window.addEventListener("scroll", updateReadingProgress);
+
+updateReadingProgress();
+
+
+
+/* =========================
+   CORNER MENU
+========================= */
+
+const menuToggle = document.querySelector(".menu-toggle");
+
+const shareButton = document.querySelector(".share-button");
+
+const menuContactButton = document.querySelector(".contact-menu-button");
+
+
+
+if (menuToggle && cornerMenu) {
+
+  menuToggle.addEventListener("click", () => {
+
+    cornerMenu.classList.toggle("open");
+
+  });
+
+}
+
+
+
+if (shareButton) {
+
+  shareButton.addEventListener("click", async () => {
+
+
+    if (navigator.share) {
+
+
+      await navigator.share({
+
+        title: document.title,
+
+        url: window.location.href
+
+      });
+
+
+    } 
+    
+    else {
+
+
+      navigator.clipboard.writeText(window.location.href);
+
+
+    }
+
+
+  });
+
+}
+
+
+
+if (menuContactButton) {
+
+  menuContactButton.addEventListener("click", () => {
+
+    openContact();
+
+  });
+
+}
+
+
+
+/* =========================
+   CAROUSEL
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+  const carousel =
+    document.querySelector(".poster-carousel .carousel-track");
+
+
+  const prevButton =
+    document.querySelector(".carousel-prev");
+
+
+  const nextButton =
+    document.querySelector(".carousel-next");
+
+
+  if (!carousel || !prevButton || !nextButton) return;
+
+
+
+  function getScrollAmount() {
+
+
+    const card =
+      carousel.querySelector(".poster-card");
+
+
+    if (!card) return 244;
+
+
+    const gap =
+      parseInt(
+        window.getComputedStyle(carousel).gap,
+        10
+      ) || 24;
+
+
+    return card.offsetWidth + gap;
+
+
+  }
+
+
+
+  prevButton.addEventListener("click", () => {
+
+
+    carousel.scrollBy({
+
+      left: -getScrollAmount(),
+
+      behavior: "smooth"
+
+    });
+
+
+  });
+
+
+
+  nextButton.addEventListener("click", () => {
+
+
+    carousel.scrollBy({
+
+      left: getScrollAmount(),
+
+      behavior: "smooth"
+
+    });
+
+
+  });
+
+
+
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
 </html>
-
-
