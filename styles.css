@@ -441,7 +441,7 @@ animation: fadeIn 2s ease;
 
   width: 100vw !important;
 
-  height: 100vh !important;
+  height: 100dvh !important;
 
   background: #ffffff;
 
@@ -1212,6 +1212,46 @@ img {
   width: auto;
   display: block;
 }
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  .poster-carousel .poster-card img {
+
+    height: 300px; /* adjust to taste */
+
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .carousel-track {
+
+    gap: 1rem;
+
+  }
+
+  .carousel-wrapper {
+
+    gap: 0.5rem;
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
 
 .lower-essay {
   margin-top: 1rem;
