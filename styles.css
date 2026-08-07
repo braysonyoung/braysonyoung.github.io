@@ -44,6 +44,25 @@ animation: fadeIn 2s ease;
 
 
 
+.blurred {
+  filter: blur(12px);
+}
+
+.blur-text {
+  filter: blur(12px);
+}
+
+
+
+.underline {
+  text-decoration: underline;
+}
+
+
+
+
+
+
 
 
 
@@ -1878,6 +1897,82 @@ img {
 }
 
 
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  .poster-carousel {
+    width: 100%;
+  }
+
+  .carousel-wrapper {
+    gap: 0;
+  }
+
+  .carousel-btn {
+    display: none; /* remove arrows on mobile */
+  }
+
+  .carousel-track-container {
+    width: 100%;
+  }
+
+  .carousel-track {
+    gap: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .poster-carousel .poster-card img {
+    height: 380px; /* make posters larger */
+    width: auto;
+  }
+
+  .poster-carousel .poster-card {
+    flex: 0 0 auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .carousel-wrapper {
+    position: relative;
+    display: flex;
+    gap: 0;
+  }
+
+  .carousel-btn {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+  }
+
+  .carousel-btn:first-child {
+    left: 0.7rem;
+  }
+
+  .carousel-btn:last-child {
+    right: 0.7rem;
+  }
+
+  .carousel-track-container {
+    width: 100%;
+  }
+
+}
 
 }
 
