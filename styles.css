@@ -1022,6 +1022,10 @@ img {
   .masthead h1 {
     font-size: 5rem;
   }
+  .magazine h1 {
+    margin-bottom: 1.2rem;
+    margin-top: 0rem;
+  }
 }
 
 .feature {
