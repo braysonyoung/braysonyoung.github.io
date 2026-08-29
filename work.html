@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brayson Young</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="masthead masthead-page">
+      <div class="masthead-inner">
+        <p class="eyebrow">
+          <a class="home-link" href="index.html">return home</a>
+        </p>
+
+        <div class="contact-links" aria-label="Contact links">
+          <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
+            contact
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <header class="masthead masthead-fixed">
+      <div class="masthead-inner">
+        <p class="eyebrow">
+          <a class="home-link" href="index.html">return home</a>
+        </p>
+
+        <div class="contact-links" aria-label="Contact links">
+          <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
+            contact
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="contact-backdrop" hidden></div>
+
+    <section class="contact-overlay" id="contact-overlay" hidden>
+      <button class="contact-close" aria-label="Close contact">
+        <img src="Assets/close.svg" alt="Close" />
+      </button>
+
+      <div class="contact-content">
+        <p class="contact-label">CONTACT</p>
+
+        <h2>I'd love to hear from you.</h2>
+
+        <p>
+          Email:
+          <a href="mailto:braysonyoung@icloud.com" class="contact-item">
+            <span>braysonyoung@icloud.com</span>
+          </a>
+          <br />
+          Instagram:
+          <a href="https://www.instagram.com/brayson.young/" target="_blank" rel="noopener noreferrer">
+            @brayson.young
+          </a>
+          <br />
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/braysonyoung/" target="_blank" rel="noopener noreferrer">
+            in/braysonyoung
+          </a>
+          <br />
+          Music:
+          <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank" rel="noopener noreferrer">
+            "Brayson Young"
+          </a>
+        </p>
+
+        <p>Based in Seattle, WA</p>
+
+        <a class="contact-credit" href="Assets/Brayson Young Resume.pdf.pdf" download>
+          Download Resume
+          <br />
+          <img src="Assets/download_grey.svg" width="19" height="19" alt="Download CV" />
+        </a>
+      </div>
+    </section>
+
+    <main class="magazine work-magazine">
+      <h2>Additional Work</h2>
+
+      <section class="feature work-feature">
+        <div class="placeholder-image large" aria-label="Project placeholder image">
+          
+        </div>
+
+        <div class="feature-copy">
+          
+          <h2>Indie Artist Management</h2>
+          <p>
+            Through an ongoing employment opportunity with Kassa Overall, a Grammy-nominated artist and producer in Seattle,
+            I am gaining experience in artist management, social media presence, and creative production.  
+            I assist in the development of marketing strategies, coordinate with other artists, and produce 
+            content for multiple social media platforms. This experience is providing valuable insight into the music industry 
+            and the importance of effective communication and collaboration in the creative process. As you will see below,
+            I am also building upon my data-analysis skills by tracking and analyzing multiple social media metrics and 
+            relating them to content type, audience engagement, and work hours. This allows me to make informed 
+            decisions about marketing strategies and learn for future projects.
+
+          </p>
+          <p>
+             
+          </p>
+        </div>
+      </section>
+
+      
+
+      <section class="work-grid" aria-label="Portfolio projects">
+        <article class="work-card">
+          <div class="placeholder-image square" aria-label="Project placeholder image">
+            <span>01</span>
+          </div>
+          <div class="work-card-copy">
+           
+            <h3>Brand Identity</h3>
+            <p>
+              I create both short and long-form videos to be used as promotional clips, behind-the-scenes footage, 
+            and music videos for Kassa Overall. Many instances require me to stitch together multiple angles of footage in both studio and live
+            environments to create cohesive and engaging content. This portion of the job allows me to build my 
+            video editing skills, refine my creative "vision", and see how an industry professional handles their 
+            brand identity.
+            </p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="placeholder-image square" aria-label="Project placeholder image">
+            <span>02</span>
+          </div>
+          <div class="work-card-copy">
+          
+            <h3>Tour Management</h3>
+            <p>
+              Another aspect of my internship is assisting with planning and executing shows and tours. I help 
+              coordinate logistics, look at schedules, and set up equipment for live performances. 
+              This experience allows me to see the behind-the-scenes work that goes into a successful tour and 
+              the importance of communication and organization in the music industry. 
+            </p>
+          </div>
+        </article>
+
+      </section>
+
+      <section class="instagram-chart-section" aria-label="Instagram follower growth chart">
+        <div class="instagram-chart-header">
+          
+     
+          <h2>Audience Growth</h2>
+        </div>
+        <div class="instagram-chart-wrap">
+          <canvas id="followerChart" aria-label="Instagram follower growth chart"></canvas>
+        </div>
+      
+      </section>
+
+      <section class="stats-section">
+        <div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value" id="totalViews">—</div>
+    <div class="stat-label">Total Views</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value" id="avgViews">—</div>
+    <div class="stat-label">Avg Views per Reel</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value" id="engagementRate">—</div>
+    <div class="stat-label">Engagement Rate</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value" id="totalEngagement">—</div>
+    <div class="stat-label">Total Engagement</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value" id="reelsPosted">—</div>
+    <div class="stat-label">Reels Posted</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-value" id="followersGained">—</div>
+    <div class="stat-label">Followers Gained</div>
+  </div>
+</div>
+      </section>
+
+      <section class="metrics-description">
+        <p>
+          This data is being collected from Kassa Overall's Instagram account beginning with 
+          my time working with him in late July. To accurately display data, I have personally 
+          built my own metric integration system into this webpage that updates on a daily basis. 
+        </p>
+      </section>
+
+      
+<br><br>
+      <section class="essay">
+        <h2>More about Kassa Overall</h2>
+        <p>
+          Kassa Overall is a Seattle-based Grammy-nominated drummer, producer, rapper, and 
+          bandleader known for pushing the boundaries between jazz, hip-hop, and avant-garde music. 
+          A graduate of the Oberlin Conservatory of Music, Overall has spent more than two decades 
+          working at the highest levels of the jazz world, touring and recording with artists 
+          including Geri Allen, Jon Batiste, Vijay Iyer, Steve Coleman, Gary Bartz, Matt Wong, and Terri Lyne 
+          Carrington.
+          <br><br>
+Overall earned a Grammy nomination for Best Jazz Instrumental Album for his work with Terri Lyne 
+Carrington on Waiting Game at the 63rd Grammy Awards. In 2025, he was selected as one of six 
+recipients of the prestigious Doris Duke Artist Award, recognizing artists whose work demonstrates 
+exceptional creativity and impact. His 2023 album ANIMALS appeared on year-end lists 
+from major outlets including The New York Times, NPR, MOJO, the San Francisco Chronicle, 
+and The Seattle Times.
+<br><br>
+Beyond his awards, Overall has established himself as a true multi-instrumentalist and musical polymath, combining virtuosic drumming, beat-making, rapping, production, and composition into a distinct sound. His collaborations span jazz, hip-hop, and alternative music, with artists such as Danny Brown, Lil B, Nick Hakim, Shabazz Palaces, and Vijay Iyer. His work has earned descriptions from Pitchfork as that of “one of modern jazz music’s most audacious futurists,” while Grammy-winning drummer Terri Lyne Carrington has called him a “pre-eminent style bender and blender.”
+        </p>
+      </section>
+
+
+
+
+
+
+
+      
+      
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <button class="about-toggle" type="button">
+          <p class="issue-end">about</p>
+        </button>
+
+        <p class="issue-end">end of issue 002</p>
+
+        <button class="contact-toggle footer-contact" type="button">
+          <p class="issue-end">contact</p>
+        </button>
+      </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to top">
+      <span class="reading-percentage">0%</span>
+    </button>
+
+    <div class="corner-menu">
+      <div class="menu-items">
+        <button class="menu-icon about-menu-button" aria-label="About">
+          <img src="Assets/about.svg" alt="About" />
+        </button>
+        <button class="menu-icon contact-menu-button" aria-label="Contact">
+          <img src="Assets/mail.svg" alt="Contact" />
+        </button>
+        <button class="menu-icon share-button" aria-label="Share">
+          <img src="Assets/send.svg" alt="Share" />
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="about-backdrop" hidden></div>
+
+    <section class="about-overlay" id="about-overlay" hidden>
+      <button class="about-close" aria-label="Close about">
+        <img src="Assets/close.svg" alt="Close about" />
+      </button>
+
+      <div class="about-content">
+        <p class="about-label">about</p>
+
+        <h2>Issue 002: Professional Results</h2>
+
+        <p>
+          This portion of my website documents major 
+          professional work opportunities I have had. 
+        </p>
+
+        <p>
+
+      <a href="work.html" class="about-link">
+
+        Return Home
+
+      </a>
+
+    </p>
+
+        <p>Created and designed by Brayson Young.</p>
+
+        <p class="about-credit">
+          © 2026 Brayson Young
+          <br />
+          All Rights Reserved
+        </p>
+      </div>
+    </section>
+
+    <script>
+      const fixedHeader = document.querySelector(".masthead-fixed");
+      let lastScroll = 0;
+
+      window.addEventListener("scroll", () => {
+        if (!fixedHeader) return;
+
+        const currentScroll = window.scrollY;
+
+        if (currentScroll < 200) {
+          fixedHeader.classList.remove("visible");
+        } else if (currentScroll < lastScroll) {
+          fixedHeader.classList.add("visible");
+        } else {
+          fixedHeader.classList.remove("visible");
+        }
+
+        lastScroll = currentScroll;
+      });
+
+      const contactButtons = document.querySelectorAll(".contact-toggle");
+      const contactOverlay = document.querySelector("#contact-overlay");
+      const contactBackdrop = document.querySelector(".contact-backdrop");
+      const contactClose = document.querySelector(".contact-close");
+
+      function openContact() {
+        if (!contactOverlay || !contactBackdrop) return;
+
+        contactOverlay.hidden = false;
+        contactBackdrop.hidden = false;
+
+        setTimeout(() => {
+          contactOverlay.classList.add("visible");
+          contactBackdrop.classList.add("visible");
+        }, 10);
+      }
+
+      function closeContact() {
+        if (!contactOverlay || !contactBackdrop) return;
+
+        contactOverlay.classList.remove("visible");
+        contactBackdrop.classList.remove("visible");
+
+        setTimeout(() => {
+          contactOverlay.hidden = true;
+          contactBackdrop.hidden = true;
+        }, 450);
+      }
+
+      contactButtons.forEach((button) => {
+        button.addEventListener("click", openContact);
+      });
+
+      if (contactClose) {
+        contactClose.addEventListener("click", closeContact);
+      }
+
+      if (contactBackdrop) {
+        contactBackdrop.addEventListener("click", closeContact);
+      }
+
+      if (contactOverlay) {
+        contactOverlay.addEventListener("click", (event) => {
+          if (event.target === contactOverlay) {
+            closeContact();
+          }
+        });
+      }
+
+      const aboutButtons = document.querySelectorAll(".about-toggle");
+      const aboutMenuButton = document.querySelector(".about-menu-button");
+      const aboutOverlay = document.querySelector("#about-overlay");
+      const aboutBackdrop = document.querySelector(".about-backdrop");
+      const aboutClose = document.querySelector(".about-close");
+
+      if (aboutMenuButton) {
+        aboutMenuButton.addEventListener("click", openAbout);
+      }
+
+      function openAbout() {
+        if (!aboutOverlay || !aboutBackdrop) return;
+
+        aboutOverlay.hidden = false;
+        aboutBackdrop.hidden = false;
+
+        setTimeout(() => {
+          aboutOverlay.classList.add("visible");
+          aboutBackdrop.classList.add("visible");
+        }, 10);
+      }
+
+      function closeAbout() {
+        if (!aboutOverlay || !aboutBackdrop) return;
+
+        aboutOverlay.classList.remove("visible");
+        aboutBackdrop.classList.remove("visible");
+
+        setTimeout(() => {
+          aboutOverlay.hidden = true;
+          aboutBackdrop.hidden = true;
+        }, 450);
+      }
+
+      aboutButtons.forEach((button) => {
+        button.addEventListener("click", openAbout);
+      });
+
+      if (aboutClose) {
+        aboutClose.addEventListener("click", closeAbout);
+      }
+
+      if (aboutBackdrop) {
+        aboutBackdrop.addEventListener("click", closeAbout);
+      }
+
+      if (aboutOverlay) {
+        aboutOverlay.addEventListener("click", (event) => {
+          if (event.target === aboutOverlay) {
+            closeAbout();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAbout();
+          closeContact();
+        }
+      });
+
+      const backToTop = document.querySelector(".back-to-top");
+      const cornerMenu = document.querySelector(".corner-menu");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 600) {
+          if (backToTop) backToTop.classList.add("visible");
+          if (cornerMenu) cornerMenu.classList.add("visible");
+        } else {
+          if (backToTop) backToTop.classList.remove("visible");
+          if (cornerMenu) cornerMenu.classList.remove("visible");
+        }
+      });
+
+      if (backToTop) {
+        backToTop.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+
+      const percentageText = document.querySelector(".reading-percentage");
+
+      function updateReadingProgress() {
+        if (!percentageText) return;
+
+        const scrollTop = window.scrollY;
+        const documentHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const percentage = Math.round((scrollTop / documentHeight) * 100);
+        percentageText.textContent = percentage + "%";
+      }
+
+      window.addEventListener("scroll", updateReadingProgress);
+      updateReadingProgress();
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const shareButton = document.querySelector(".share-button");
+      const menuContactButton = document.querySelector(".contact-menu-button");
+
+      if (menuToggle && cornerMenu) {
+        menuToggle.addEventListener("click", () => {
+          cornerMenu.classList.toggle("open");
+        });
+      }
+
+      if (shareButton) {
+        shareButton.addEventListener("click", async () => {
+          if (navigator.share) {
+            await navigator.share({
+              title: document.title,
+              url: window.location.href,
+            });
+          } else {
+            navigator.clipboard.writeText(window.location.href);
+          }
+        });
+      }
+
+      if (menuContactButton) {
+        menuContactButton.addEventListener("click", () => {
+          openContact();
+        });
+      }
+
+      const followerChartCanvas = document.getElementById("followerChart");
+
+if (followerChartCanvas && window.Chart) {
+
+  const dates = [
+    "Jul 31",
+    "Aug 1",
+    "Aug 2",
+    "Aug 3",
+    "Aug 4",
+    "Aug 5",
+    "Aug 6",
+    "Aug 7",
+    "Aug 8",
+    "Aug 9",
+    "Aug 10",
+    "Aug 11",
+    "Aug 12",
+    "Aug 13",
+    "Aug 14",
+    "Aug 15",
+    "Aug 16",
+    "Aug 17",
+    "Aug 18",
+    "Aug 19",
+    "Aug 20",
+    "Aug 21",
+    "Aug 22",
+    "Aug 23",
+    "Aug 24",
+    "Aug 25",
+    "Aug 26",
+    "Aug 27",
+    "Aug 28",
+    "Aug 29"
+  ];
+
+  const instagramFollowers = [
+    37140,
+    37148,
+    37161,
+    37170,
+    37188,
+    37220,
+    37224,
+    37259,
+    37265,
+    37272,
+    37280,
+    37283,
+    37290,
+    37317,
+    37335,
+    37353,
+    37361,
+    37375,
+    37357,
+    37358,
+    37372,
+    37378,
+    37396,
+    37403,
+    37406,
+    37404,
+    37407,
+    37417,
+    37424,
+    37430
+  ];
+
+  new Chart(followerChartCanvas, {
+    type: "line",
+
+    data: {
+      labels: dates,
+
+      datasets: [{
+        label: "Instagram Followers",
+        data: instagramFollowers,
+
+        borderColor: "#111111",
+        backgroundColor: "rgba(17, 17, 17, 0.08)",
+        borderWidth: 2,
+        tension: 0.32,
+
+        pointRadius: 2,
+        pointHoverRadius: 5,
+
+        pointBackgroundColor: "#111111",
+        pointBorderColor: "#111111",
+
+        fill: false
+      }]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      animation: {
+        duration: 600,
+        easing: "easeOutQuart"
+      },
+
+      plugins: {
+        legend: {
+          display: false
+        },
+
+        tooltip: {
+          callbacks: {
+            title: function(context) {
+              return context[0].label;
+            },
+
+            label: function(context) {
+              return context.parsed.y.toLocaleString() + " followers";
+            }
+          }
+        }
+      },
+
+      scales: {
+        x: {
+          grid: {
+            display: false,
+            drawBorder: false
+          },
+
+          ticks: {
+            color: "#111111",
+
+            font: {
+              family: "Kameron, serif"
+            },
+
+            autoSkip: true,
+            maxTicksLimit: 7
+          }
+        },
+
+        y: {
+          beginAtZero: false,
+
+          grid: {
+            color: "rgba(17, 17, 17, 0.08)",
+            drawBorder: false
+          },
+
+          ticks: {
+            color: "#111111",
+
+            font: {
+              family: "Kameron, serif"
+            },
+
+            callback: function(value) {
+              return value.toLocaleString();
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ===============================
+// GOOGLE SHEETS — TOTAL METRICS
+// ===============================
+
+const totalSheetURL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiO8mDO1jmPGd5Hf9xCpgq7QOCvpBKT9QjensKZMx2DzFlzYkizKgY14TU-ayN8hF1nHJUrtUz8sww/pub?gid=547960535&single=true&output=csv";
+
+async function loadTotalMetrics() {
+  try {
+    const response = await fetch(totalSheetURL);
+
+    if (!response.ok) {
+      throw new Error("Could not load Google Sheet");
+    }
+
+    const csvText = await response.text();
+
+    // Parse the CSV
+    const rows = csvText
+      .trim()
+      .split("\n")
+      .map(row => row.split(","));
+
+    // Row 2 contains the actual values
+    const data = rows[1];
+
+    if (!data) {
+      throw new Error("No data found in Total sheet");
+    }
+
+    const totalViews = data[0];
+    const avgViews = data[1];
+    const engagementRate = data[2];
+    const totalEngagement = data[3];
+    const reelsPosted = data[4];
+    const followersGained = data[5];
+
+    // Update website
+    document.getElementById("totalViews").textContent =
+      formatNumber(totalViews);
+
+    document.getElementById("avgViews").textContent =
+      formatNumber(avgViews);
+
+    document.getElementById("engagementRate").textContent =
+      formatPercentage(engagementRate);
+
+    document.getElementById("totalEngagement").textContent =
+      formatNumber(totalEngagement);
+
+    document.getElementById("reelsPosted").textContent =
+      formatNumber(reelsPosted);
+
+    document.getElementById("followersGained").textContent =
+      formatNumber(followersGained, true);
+
+  } catch (error) {
+    console.error("Error loading social media metrics:", error);
+  }
+}
+
+
+// Format large numbers
+function formatNumber(value, plusSign = false) {
+
+  const number = Number(
+    String(value).replace(/,/g, "").trim()
+  );
+
+  if (isNaN(number)) {
+    return value;
+  }
+
+  let formatted;
+
+  if (number >= 1000000) {
+    formatted = (number / 1000000).toFixed(1) + "M";
+  } 
+  else if (number >= 1000) {
+    formatted = (number / 1000).toFixed(1) + "K";
+  } 
+  else {
+    formatted = number.toLocaleString();
+  }
+
+  return plusSign && number > 0
+    ? "+" + formatted
+    : formatted;
+}
+
+
+// Format percentages
+function formatPercentage(value) {
+
+  let cleaned = String(value)
+    .replace("%", "")
+    .trim();
+
+  let number = Number(cleaned);
+
+  if (isNaN(number)) {
+    return value;
+  }
+
+  // If Google Sheet gives us 0.064 instead of 6.4
+  if (number < 1) {
+    number *= 100;
+  }
+
+  return number.toFixed(1) + "%";
+}
+
+
+// Load metrics
+loadTotalMetrics();
+
+
+    </script>
+  </body>
+</html>
