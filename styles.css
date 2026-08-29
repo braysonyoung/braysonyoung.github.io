@@ -946,6 +946,14 @@ img {
   .work-grid,
   .work-grid:has(.work-card:nth-child(2):last-child) {
     grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .work-card {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .work-grid:has(.work-card:nth-child(2):last-child) .work-card-copy {
