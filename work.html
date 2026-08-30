@@ -10,9 +10,19 @@
   <body>
     <header class="masthead masthead-page">
       <div class="masthead-inner">
-        <p class="eyebrow">
-          <a class="home-link" href="index.html">return home</a>
-        </p>
+        <div class="masthead-left">
+          <div class="page-menu">
+            <button class="masthead-menu-toggle" type="button" aria-label="Open page menu" aria-expanded="false">
+              MENU
+            </button>
+            <div class="masthead-menu-panel">
+              <a href="index.html">HOME</a>
+              <a href="work.html">WORK</a>
+              <button type="button" class="about-toggle">ABOUT</button>
+              <button type="button" class="masthead-contact-link">CONTACT</button>
+            </div>
+          </div>
+        </div>
 
         <div class="contact-links" aria-label="Contact links">
           <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
@@ -24,9 +34,19 @@
 
     <header class="masthead masthead-fixed">
       <div class="masthead-inner">
-        <p class="eyebrow">
-          <a class="home-link" href="index.html">return home</a>
-        </p>
+        <div class="masthead-left">
+          <div class="page-menu">
+            <button class="masthead-menu-toggle" type="button" aria-label="Open page menu" aria-expanded="false">
+              MENU
+            </button>
+            <div class="masthead-menu-panel">
+              <a href="index.html">HOME</a>
+              <a href="work.html">WORK</a>
+              <button type="button" class="about-toggle">ABOUT</button>
+              <button type="button" class="masthead-contact-link">CONTACT</button>
+            </div>
+          </div>
+        </div>
 
         <div class="contact-links" aria-label="Contact links">
           <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
@@ -192,16 +212,18 @@
           built my own metric integration system into this webpage that updates on a daily basis. 
           <br><br>
           These numbers (and much more data not displayed here) help me understand what content produces the best results and how to make more 
-          intentional creative decisions. I use total views and views per reel to identify
+          intentional creative decisions. My engagement rate is calculated as (likes+comments) / views *100, measuring
+          the percentage of viewers who interact with a reel. I use total views and views per reel to identify
           the posts that reach the most people, while follower growth shows what translates
-          into audience growth. My engagement rate is calculated as (likes + comments) / views * 100, measuring
-          the percentage of viewers who interact with a reel. With a 5.9% engagement rate coming from my 
-          content, they perform at nearly twice the rate of many comparable creator benchmarks 
+          into audience growth.  
+          <br><br>
+          For example: with a <b>5.9%</b> engagement rate coming from my 
+          content, this account performs at nearly <b>twice the rate</b> of many comparable creator benchmarks. 
           
           <a href="https://buffer.com/resources/social-media-benchmarks/?utm_campaign=paid&utm_source=adwords&utm_medium=ppc&utm_content=138384306880&utm_term=buffer&gad_source=1&gad_campaignid=16985882616&gbraid=0AAAAADq9yAqYQx05HlzDAbX7TnssPaywG&gclid=Cj0KCQjwhsrUBhDxARIsAN3AQSd36JyF-f6gnXyy2L3PWSfXr54P-aKfrpA6dy-5pVZqHu-8DxV1FCUaAv7-EALw_wcB" target="_blank">
   <sup>1</sup>
 </a> 
-.
+
 
           This shows that the audience to my content is highly responsive and engaged, which obviously results
           in tangible gains for the artist. 
@@ -296,7 +318,7 @@ Beyond his awards, Overall has established himself as a true multi-instrumentali
 
         <p>
 
-      <a href="work.html" class="about-link">
+      <a href="index.html" class="about-link">
 
         Return Home
 
@@ -481,15 +503,64 @@ Beyond his awards, Overall has established himself as a true multi-instrumentali
       window.addEventListener("scroll", updateReadingProgress);
       updateReadingProgress();
 
-      const menuToggle = document.querySelector(".menu-toggle");
+      const mastheadMenuButtons = document.querySelectorAll(".masthead-menu-toggle");
+      const pageMenus = document.querySelectorAll(".page-menu");
+      const cornerMenuToggle = document.querySelector(".corner-menu .menu-toggle");
       const shareButton = document.querySelector(".share-button");
       const menuContactButton = document.querySelector(".contact-menu-button");
+      const mastheadContactButtons = document.querySelectorAll(".masthead-contact-link");
 
-      if (menuToggle && cornerMenu) {
-        menuToggle.addEventListener("click", () => {
+      mastheadContactButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          openContact();
+        });
+      });
+
+      mastheadMenuButtons.forEach((toggle) => {
+        toggle.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          const menu = toggle.closest(".page-menu");
+          if (!menu) return;
+
+          const willOpen = !menu.classList.contains("open");
+          pageMenus.forEach((item) => item.classList.remove("open"));
+
+          if (willOpen) {
+            menu.classList.add("open");
+            toggle.setAttribute("aria-expanded", "true");
+          } else {
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        pageMenus.forEach((menu) => {
+          if (!menu.contains(event.target)) {
+            menu.classList.remove("open");
+            const toggle = menu.querySelector(".masthead-menu-toggle");
+            if (toggle) toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+
+      if (cornerMenuToggle && cornerMenu) {
+        cornerMenuToggle.addEventListener("click", () => {
           cornerMenu.classList.toggle("open");
         });
       }
+
+      document.addEventListener("click", (event) => {
+        mastheadDropdowns.forEach((dropdown) => {
+          if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove("open");
+            const toggle = dropdown.querySelector(".masthead-menu-toggle");
+            if (toggle) toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
 
       if (shareButton) {
         shareButton.addEventListener("click", async () => {
@@ -822,6 +893,41 @@ function formatPercentage(value) {
 
 // Load metrics
 loadTotalMetrics();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll(".masthead-menu-panel a, .masthead-menu-panel button").forEach((item) => {
+  item.addEventListener("click", () => {
+    const menu = item.closest(".page-menu");
+    if (!menu) return;
+
+    menu.classList.remove("open");
+
+    const toggle = menu.querySelector(".masthead-menu-toggle");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+
+
+
+
+
 
 
     </script>

@@ -10,42 +10,53 @@
 
 
 <header class="masthead masthead-page">
-        <div class="masthead-inner">
-          <p class="eyebrow">
-
-      <span class="eyebrow-full">issue 001: rhythm and image</span>
-
-     <span class="eyebrow-short">issue 001</span>
-
-        </p>
-        
-        <div class="contact-links" aria-label="Contact links">
-          <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
-            contact
-          </button>
+  <div class="masthead-inner">
+    <div class="masthead-left">
+      <div class="page-menu">
+        <button class="masthead-menu-toggle" type="button" aria-label="Open page menu" aria-expanded="false">
+          MENU
+        </button>
+        <div class="masthead-menu-panel">
+          <a href="index.html">HOME</a>
+          <a href="work.html">WORK</a>
+          <button type="button" class="about-toggle">ABOUT</button>
+          <button type="button" class="masthead-contact-link">CONTACT</button>
+          
         </div>
       </div>
+    </div>
 
+    <div class="contact-links" aria-label="Contact links">
+      <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
+        contact
+      </button>
+    </div>
+  </div>
 </header>
 
-
 <header class="masthead masthead-fixed">
-        <div class="masthead-inner">
-          <p class="eyebrow">
+  <div class="masthead-inner">
+    <div class="masthead-left">
+      <div class="page-menu">
+        <button class="masthead-menu-toggle" type="button" aria-label="Open page menu" aria-expanded="false">
+          MENU
+        </button>
+        <div class="masthead-menu-panel">
+          <a href="index.html">HOME</a>
+          <a href="work.html">WORK</a>
+          <button type="button" class="about-toggle">ABOUT</button>
+          <button type="button" class="masthead-contact-link">CONTACT</button>
 
-      <span class="eyebrow-full">issue 001: rhythm and image</span>
-
-     <span class="eyebrow-short">issue 001</span>
-
-        </p>
-        
-        <div class="contact-links" aria-label="Contact links">
-          <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
-            contact
-          </button>
         </div>
       </div>
+    </div>
 
+    <div class="contact-links" aria-label="Contact links">
+      <button class="contact-toggle" type="button" aria-haspopup="dialog" aria-controls="contact-modal" aria-expanded="false">
+        contact
+      </button>
+    </div>
+  </div>
 </header>
 
 
@@ -164,9 +175,50 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <main class="magazine">
 
       
+
+
 
 
 
@@ -797,6 +849,62 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
 
 /* =========================
@@ -1167,28 +1275,67 @@ updateReadingProgress();
 
 
 /* =========================
-   CORNER MENU
+   TOP-LEFT PAGE MENU + CORNER MENU
 ========================= */
 
-const menuToggle = document.querySelector(".menu-toggle");
-
+const mastheadMenuButtons = document.querySelectorAll(".masthead-menu-toggle");
+const pageMenus = document.querySelectorAll(".page-menu");
+const cornerMenuToggle = document.querySelector(".corner-menu .menu-toggle");
 const shareButton = document.querySelector(".share-button");
-
 const menuContactButton = document.querySelector(".contact-menu-button");
+const mastheadContactButtons = document.querySelectorAll(".masthead-contact-link");
 
-
-
-if (menuToggle && cornerMenu) {
-
-  menuToggle.addEventListener("click", () => {
-
-    cornerMenu.classList.toggle("open");
-
+mastheadContactButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    openContact();
   });
+});
 
+mastheadMenuButtons.forEach((toggle) => {
+  toggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const menu = toggle.closest(".page-menu");
+    if (!menu) return;
+
+    const willOpen = !menu.classList.contains("open");
+    pageMenus.forEach((item) => item.classList.remove("open"));
+
+    if (willOpen) {
+      menu.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+    } else {
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+document.addEventListener("click", (event) => {
+  pageMenus.forEach((menu) => {
+    if (!menu.contains(event.target)) {
+      menu.classList.remove("open");
+      const toggle = menu.querySelector(".masthead-menu-toggle");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+if (cornerMenuToggle && cornerMenu) {
+  cornerMenuToggle.addEventListener("click", () => {
+    cornerMenu.classList.toggle("open");
+  });
 }
 
-
+document.addEventListener("click", (event) => {
+  mastheadDropdowns.forEach((dropdown) => {
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove("open");
+      const toggle = dropdown.querySelector(".masthead-menu-toggle");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+});
 
 if (shareButton) {
 
@@ -1233,6 +1380,30 @@ if (menuContactButton) {
   });
 
 }
+
+
+
+
+
+
+document.querySelectorAll(".masthead-menu-panel a, .masthead-menu-panel button").forEach((item) => {
+  item.addEventListener("click", () => {
+    const menu = item.closest(".page-menu");
+    if (!menu) return;
+
+    menu.classList.remove("open");
+
+    const toggle = menu.querySelector(".masthead-menu-toggle");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+
+
+
+
 
 
 
