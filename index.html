@@ -110,20 +110,15 @@
 
 <section class="contact-overlay" id="contact-overlay" hidden>
 
-  <button class="contact-close" aria-label="Close contact">
-
-    <img src="Assets/close.svg" alt="Close">
-
-  </button>
-
   <div class="contact-content">
 
-    <p class="contact-label">
+    <button class="contact-close" aria-label="Close contact">
 
-      CONTACT
-<br>
+      <img src="Assets/close.svg" alt="Close">
 
-    </p>
+    </button>
+
+  
 
     <h2>
 
@@ -131,55 +126,61 @@
 
     </h2>
 
+    <div class="contact-list">
+      <a href="mailto:braysonyoung@icloud.com" class="contact-item-row" target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon-wrap">
+          <img src="Assets/gmail.svg" alt="Email" />
+        </span>
+        <span class="contact-item-text">
+          <span class="contact-item-label">Email</span>
+          <span class="contact-item-value">braysonyoung@icloud.com</span>
+        </span>
+      </a>
+
+      <a href="https://www.instagram.com/brayson.young/" class="contact-item-row" target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon-wrap">
+          <img src="Assets/instagram.svg" alt="Instagram" />
+        </span>
+        <span class="contact-item-text">
+          <span class="contact-item-label">Instagram</span>
+          <span class="contact-item-value">@brayson.young</span>
+        </span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/braysonyoung/" class="contact-item-row" target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon-wrap">
+          <img src="Assets/linkedin2.svg" alt="LinkedIn" />
+        </span>
+        <span class="contact-item-text">
+          <span class="contact-item-label">LinkedIn</span>
+          <span class="contact-item-value">in/braysonyoung</span>
+        </span>
+      </a>
+
+      <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" class="contact-item-row" target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon-wrap">
+          <img src="Assets/spotify2.svg" alt="Music" />
+        </span>
+        <span class="contact-item-text">
+          <span class="contact-item-label">Music</span>
+          <span class="contact-item-value">"Brayson Young"</span>
+        </span>
+      </a>
+
+      <a href="Assets/Brayson Young Resume.pdf.pdf" class="contact-item-row" target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon-wrap">
+          <img src="Assets/download.svg" alt="Download" />
+        </span>
+        <span class="contact-item-text">
+          <span class="contact-item-label">Resume</span>
+          <span class="contact-item-value">Download Resume </span>
+        </span>
+      </a>
+    </div>
 
 
 
-<p>
-  Email:
-  <a href="mailto:braysonyoung@icloud.com" class="contact-item">
-
-  <span>braysonyoung@icloud.com</span>
-
-</a>
-
-
-
-<br>
-  Instagram:
-  <a href="https://www.instagram.com/brayson.young/" target="_blank" rel="noopener noreferrer">
-
-    @brayson.young
-
-</a>
-<br>
-  LinkedIn:
-  <a href="https://www.linkedin.com/in/braysonyoung/" target="_blank" rel="noopener noreferrer">
-
-    in/braysonyoung
-
-</a>
-<br>
-  Music:
-  <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" target="_blank" rel="noopener noreferrer">
-
-  "Brayson Young"
-
-</a>
-
-</p>
-
-<p>Based in Seattle, WA</p>
-
-
-<a class="contact-credit" href="Assets/Brayson Young Resume.pdf.pdf" download>
-
-  Download Resume
-
-  <br>
-
-  <img src="Assets/download_grey.svg" width="19" height="19" alt="Download CV">
-
-</a>
+<p class="contact-credit">Based in Seattle, WA</p>
 
   </div>
 
@@ -802,19 +803,13 @@
 
 <section class="about-overlay" id="about-overlay" hidden>
 
-  <button class="about-close" aria-label="Close about">
-
-  <img src="Assets/close.svg" alt="Close about">    
-
-  </button>
-
   <div class="about-content">
 
-    <p class="about-label">
+    <button class="about-close" aria-label="Close about">
 
-      about
+      <img src="Assets/close.svg" alt="Close about">    
 
-    </p>
+    </button>
 
     <h2>
 
@@ -833,21 +828,6 @@
 
     </p>
 
-    <p>
-
-      <a href="work.html" class="about-link">
-
-        Learn more about my professional work
-
-      </a>
-
-    </p>
-
-    <p>
-
-      Created and designed by Brayson Young.
-
-    </p>
 
     <p class="about-credit">
 
@@ -857,6 +837,56 @@
 
     </p>
 
+  </div>
+
+</section>
+
+<div class="popup-backdrop" hidden></div>
+
+<section class="popup-window" id="popup-window" hidden>
+
+  <div class="popup-card">
+    <button class="popup-close" aria-label="Close welcome message">
+      <img src="Assets/close.svg" alt="Close welcome message">
+    </button>
+
+    <div class="popup-content">
+      <h2>Stay Updated.</h2>
+
+      <div class="popup-album">
+        <img src="Images/drumscool.jpg" alt="Circle of Life album cover" />
+       
+      </div>
+
+      <p>
+        Be the first to know of my debut album release:
+        <br>
+      </p>
+
+      <div class="instagram-link-wrap">
+        <a
+          class="instagram-link"
+          href="https://www.instagram.com/brayson.young/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Brayson Young on Instagram"
+        >
+          <span class="instagram-avatar">
+            <img src="Assets/instagram.svg" alt="Instagram" />
+          </span>
+
+          <span class="instagram-meta">
+            <span class="instagram-handle">@brayson.young</span>
+            <span class="instagram-label">Instagram</span>
+          </span>
+        </a>
+      </div>
+
+
+      
+      
+      
+    </div>
   </div>
 
 </section>
@@ -1126,6 +1156,70 @@ function closeAbout() {
 
   }, 450);
 
+}
+
+
+/* =========================
+   WELCOME POPUP
+========================= */
+
+const popupWindow = document.querySelector("#popup-window");
+const popupBackdrop = document.querySelector(".popup-backdrop");
+const popupClose = document.querySelector(".popup-close");
+const popupButton = document.querySelector(".popup-button");
+
+function openPopup() {
+
+  if (!popupWindow || !popupBackdrop) return;
+
+  popupWindow.hidden = false;
+  popupBackdrop.hidden = false;
+
+  setTimeout(() => {
+    popupWindow.classList.add("visible");
+    popupBackdrop.classList.add("visible");
+  }, 10);
+
+}
+
+function closePopup() {
+
+  if (!popupWindow || !popupBackdrop) return;
+
+  popupWindow.classList.remove("visible");
+  popupBackdrop.classList.remove("visible");
+
+  setTimeout(() => {
+    popupWindow.hidden = true;
+    popupBackdrop.hidden = true;
+  }, 450);
+
+}
+
+if (popupClose) {
+  popupClose.addEventListener("click", closePopup);
+}
+
+if (popupButton) {
+  popupButton.addEventListener("click", closePopup);
+}
+
+if (popupBackdrop) {
+  popupBackdrop.addEventListener("click", closePopup);
+}
+
+if (popupWindow) {
+  popupWindow.addEventListener("click", (event) => {
+    if (event.target === popupWindow) {
+      closePopup();
+    }
+  });
+}
+
+if (window.location.pathname.endsWith("/index.html") || window.location.pathname === "/" || window.location.pathname === "") {
+  setTimeout(() => {
+    openPopup();
+  }, 2200);
 }
 
 

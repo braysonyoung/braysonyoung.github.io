@@ -435,7 +435,7 @@ animation: fadeIn 2s ease;
 
   inset: 0;
 
-  background: rgba(255,255,255,0.55);
+  background: rgba(255, 255, 255, 0.2);
 
   backdrop-filter: blur(10px);
 
@@ -472,7 +472,11 @@ animation: fadeIn 2s ease;
 
   height: 100dvh !important;
 
-  background: #ffffff;
+  padding: 0 1rem;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.12);
 
   z-index: 999;
 
@@ -499,7 +503,7 @@ animation: fadeIn 2s ease;
 
 .contact-overlay.visible {
 
-  opacity: .7;
+  opacity: 1;
 
   transform: translateY(0);
 
@@ -513,13 +517,33 @@ animation: fadeIn 2s ease;
 
 .contact-content {
 
-  width: min(90vw, 400px);
+  position: relative;
+
+  width: min(90vw, 460px);
+
+  max-height: min(82vh, 500px);
+
+  height: auto;
+
+  padding: 2.5rem 1.5rem 1.5rem;
+
+  box-sizing: border-box;
 
   text-align: center;
 
   color: inherit;
 
   line-height: 1.7;
+
+  border: 1px solid rgba(17, 17, 17, 0.15);
+
+  background: rgba(255, 255, 255, 1);
+
+  border-radius: 18px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+
+  overflow: auto;
 
 }
 
@@ -602,7 +626,7 @@ animation: fadeIn 2s ease;
 
 .contact-label {
 
-  font-size: .95rem;
+  font-size: 1.0925rem;
 
   letter-spacing: .2em;
 
@@ -618,7 +642,7 @@ animation: fadeIn 2s ease;
 
 .contact-content h2 {
 
-  font-size: clamp(2.2rem);
+  font-size: clamp(2.53rem);
 
   font-weight: 700;
 
@@ -626,9 +650,167 @@ animation: fadeIn 2s ease;
 
   color: #000;
 
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
 
 
+
+}
+
+.contact-list {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 0.75rem;
+
+  margin: 1.5rem auto;
+
+  width: fit-content;
+
+}
+
+.contact-item-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.9rem;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 0;
+
+  text-align: left;
+
+  transition: opacity 0.2s ease;
+
+}
+
+.contact-item-row:hover {
+
+  opacity: 0.7;
+
+  transform: none;
+
+  box-shadow: none;
+
+}
+
+.contact-icon-wrap {
+
+  width: 36px;
+
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 0;
+
+  background: transparent;
+
+  overflow: visible;
+
+}
+
+.contact-icon-wrap img {
+
+  width: 27px;
+
+  height: 27px;
+
+  display: block;
+
+}
+
+.contact-item-row[href*="linkedin"] .contact-icon-wrap {
+
+  border-radius: 0;
+
+  overflow: visible;
+
+}
+
+.contact-item-row[href*="linkedin"] .contact-icon-wrap {
+
+  border-radius: 0;
+
+  overflow: visible;
+
+}
+
+.contact-item-row[href*="linkedin"] .contact-icon-wrap img {
+
+  width: 27px;
+
+  height: 27px;
+
+  object-fit: contain;
+
+  border-radius: 0;
+
+}
+
+.contact-item-row[href^="mailto:"] .contact-icon-wrap img {
+
+  width: 30px;
+
+  height: 30px;
+
+  object-fit: contain;
+
+}
+
+.contact-item-text {
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+}
+
+.contact-item-label {
+
+  font-size: 0.713rem;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: #5e5e5e;
+
+}
+
+.contact-item-value {
+
+  font-size: 1.058rem;
+
+  color: #111111;
+
+  white-space: normal;
+
+  word-break: break-word;
 
 }
 
@@ -737,15 +919,35 @@ a:active {
 
   position: absolute;
 
-  top: 2rem;
+  top: 0.9rem;
 
-  right: 2rem;
+  right: 0.9rem;
+
+  width: 2.1rem;
+
+  height: 2.1rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 
   border: none;
 
   background: transparent;
 
+  border-radius: 0;
+
   cursor: pointer;
+
+}
+
+.contact-close img {
+
+  width: 16px;
+
+  height: 16px;
 
 }
 
@@ -2108,7 +2310,7 @@ img {
 
   inset: 0;
 
-  background: rgba(255,255,255,0.55);
+  background: rgba(255, 255, 255, 0.2);
 
   backdrop-filter: blur(10px);
 
@@ -2142,7 +2344,11 @@ img {
 
   height: 100vh !important;
 
-  background: #ffffff;
+  padding: 0 1rem;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.12);
 
   z-index: 999;
 
@@ -2168,7 +2374,7 @@ img {
 
 .about-overlay.visible {
 
-  opacity: .7;
+  opacity: 1;
 
   transform: translateY(0);
 
@@ -2178,13 +2384,465 @@ img {
 
 
 
+/* POPUP BACKDROP */
+
+.popup-backdrop {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 40;
+
+  opacity: 0;
+
+  transition: opacity .4s ease;
+
+}
+
+.popup-backdrop.visible {
+
+  opacity: 1;
+
+}
+
+/* POPUP WINDOW */
+
+.popup-window {
+
+  position: fixed !important;
+
+  top: 0 !important;
+
+  left: 0 !important;
+
+  width: 100vw !important;
+
+  height: 100dvh !important;
+
+  padding: 0 1rem;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  pointer-events: none;
+
+  transition:
+
+    opacity .45s ease,
+
+    transform .45s cubic-bezier(.22,1,.36,1);
+
+}
+
+.popup-window.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+
+}
+
+.popup-card {
+
+  position: relative;
+
+  width: min(90vw, 460px);
+
+  height: auto;
+
+  max-height: min(82vh, 500px);
+
+  text-align: center;
+
+  color: #1b1b1b;
+
+  line-height: 1.7;
+
+  padding: 2.5rem 1.5rem 1.5rem;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(17, 17, 17, 0.15);
+
+  background: rgba(255, 255, 255, 1);
+
+  border-radius: 18px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+
+}
+
+.popup-label {
+
+  font-size: .75rem;
+
+  letter-spacing: .22em;
+
+  text-transform: uppercase;
+
+  color: #000000;
+
+  margin-bottom: 1.5rem;
+
+}
+
+.popup-content h2 {
+
+  margin: 0 0 1rem;
+
+  font-size: clamp(2.2rem);
+
+  line-height: 1.1;
+
+  font-weight: 700;
+
+}
+
+.popup-content p {
+
+  margin: 0 0 1rem;
+
+  font-size: 1.02rem;
+
+}
+
+.popup-album {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  margin: 0 auto 1.1rem;
+
+  width: fit-content;
+
+  color: #111111;
+
+}
+
+.popup-album img {
+
+  display: block;
+
+  width: 270px;
+
+  height: 270px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+
+}
+
+.popup-album span {
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.02em;
+
+}
+
+.instagram-link-wrap {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  margin: 0 auto 1.25rem;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+}
+
+.instagram-link {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.7rem;
+
+  width: fit-content;
+
+  min-width: 0;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 0;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  transition: opacity 0.2s ease;
+
+  overflow: visible;
+
+}
+
+.instagram-link:hover {
+
+  opacity: 0.7;
+
+  transform: none;
+
+  box-shadow: none;
+
+}
+
+.instagram-avatar {
+
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 0;
+
+  overflow: visible;
+
+  border: none;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+.instagram-avatar img {
+
+  display: block;
+
+  width: 33px;
+
+  height: 33px;
+
+  object-fit: contain;
+
+}
+
+.instagram-meta {
+
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  text-align: left;
+
+  overflow: hidden;
+
+}
+
+.instagram-handle {
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+}
+
+.instagram-label {
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: #5e5e5e;
+
+}
+
+.instagram-button {
+
+  border: 1px solid rgba(17, 17, 17, 0.1);
+
+  background: #f0f0f0;
+
+  color: #111111;
+
+  padding: 0.46rem 0.7rem;
+
+  border-radius: 999px;
+
+  font-size: 0.66rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  flex-shrink: 0;
+
+}
+
+.popup-button {
+
+  appearance: none;
+
+  background: transparent;
+
+  border: 1px solid #111111;
+
+  color: #111111;
+
+  padding: 0.7rem 1.4rem;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 0.85rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  transition: background .2s ease, color .2s ease;
+
+}
+
+.popup-button:hover {
+
+  background: #111111;
+
+  color: #ffffff;
+
+}
+
+.popup-close {
+
+  position: absolute;
+
+  top: 0.9rem;
+
+  right: 0.9rem;
+
+  width: 2.1rem;
+
+  height: 2.1rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: transparent;
+
+  border: none;
+
+  border-radius: 0;
+
+  cursor: pointer;
+
+  z-index: 2;
+
+}
+
+.popup-close img {
+
+  width: 16px;
+
+  height: 16px;
+
+  opacity: 0.8;
+
+}
+
+
+
 /* CONTENT */
 
 .about-content {
 
-  width: min(90vw, 400px);
+  position: relative;
+
+  width: min(90vw, 460px);
+
+  max-height: min(82vh, 500px);
+
+  height: auto;
+
+  padding: 2.5rem 1.5rem 1.5rem;
+
+  box-sizing: border-box;
 
   text-align: center;
+
+  border: 1px solid rgba(17, 17, 17, 0.15);
+
+  background: rgba(255, 255, 255, 1);
+
+  border-radius: 18px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+
+  overflow: auto;
 
 }
 
@@ -2265,21 +2923,37 @@ img {
 
   position: absolute;
 
-  top: 2rem;
+  top: 0.9rem;
 
-  right: 2rem;
+  right: 0.9rem;
+
+  width: 2.1rem;
+
+  height: 2.1rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 
   border: none;
 
   background: transparent;
 
+  border-radius: 0;
+
   color: #111;
 
-  font-size: 2rem;
-
-  font-weight: 300;
-
   cursor: pointer;
+
+}
+
+.about-close img {
+
+  width: 16px;
+
+  height: 16px;
 
 }
 
