@@ -293,7 +293,7 @@
           the posts that reach the most people, while follower growth shows what translates
           into audience growth.  
           <br><br>
-          For example: with a <b>5.9%</b> engagement rate coming from my 
+          For example: with a <b><span id="engagementRateText"></span></b> engagement rate coming from my 
           content, this account performs at nearly <b>twice the rate</b> of many comparable creator benchmarks. 
           
           <a href="https://buffer.com/resources/social-media-benchmarks/?utm_campaign=paid&utm_source=adwords&utm_medium=ppc&utm_content=138384306880&utm_term=buffer&gad_source=1&gad_campaignid=16985882616&gbraid=0AAAAADq9yAqYQx05HlzDAbX7TnssPaywG&gclid=Cj0KCQjwhsrUBhDxARIsAN3AQSd36JyF-f6gnXyy2L3PWSfXr54P-aKfrpA6dy-5pVZqHu-8DxV1FCUaAv7-EALw_wcB" target="_blank">
@@ -305,6 +305,14 @@
           in tangible gains for the artist. 
         </p>
       </section>
+
+
+
+
+
+
+
+
 
 
       
@@ -667,82 +675,210 @@ Beyond his awards, Overall has established himself as a true multi-instrumentali
         });
       }
 
-      const followerChartCanvas = document.getElementById("followerChart");
 
-if (followerChartCanvas && window.Chart) {
 
-  const dates = [
-    "Jul 31",
-    "Aug 1",
-    "Aug 2",
-    "Aug 3",
-    "Aug 4",
-    "Aug 5",
-    "Aug 6",
-    "Aug 7",
-    "Aug 8",
-    "Aug 9",
-    "Aug 10",
-    "Aug 11",
-    "Aug 12",
-    "Aug 13",
-    "Aug 14",
-    "Aug 15",
-    "Aug 16",
-    "Aug 17",
-    "Aug 18",
-    "Aug 19",
-    "Aug 20",
-    "Aug 21",
-    "Aug 22",
-    "Aug 23",
-    "Aug 24",
-    "Aug 25",
-    "Aug 26",
-    "Aug 27",
-    "Aug 28",
-    "Aug 29",
-    "Aug 30",
-    "Aug 31",
-    "Sep 1",
-  ];
 
-  const instagramFollowers = [
-    37140,
-    37148,
-    37161,
-    37170,
-    37188,
-    37220,
-    37224,
-    37259,
-    37265,
-    37272,
-    37280,
-    37283,
-    37290,
-    37317,
-    37335,
-    37353,
-    37361,
-    37375,
-    37357,
-    37358,
-    37372,
-    37378,
-    37396,
-    37403,
-    37406,
-    37404,
-    37407,
-    37417,
-    37424,
-    37430,
-    37448,
-    37501,
-    37514
 
-  ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ===============================
+// GOOGLE SHEETS — TOTAL METRICS
+// ===============================
+
+const totalSheetURL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiO8mDO1jmPGd5Hf9xCpgq7QOCvpBKT9QjensKZMx2DzFlzYkizKgY14TU-ayN8hF1nHJUrtUz8sww/pub?gid=547960535&single=true&output=csv";
+
+async function loadTotalMetrics() {
+  try {
+    const response = await fetch(totalSheetURL);
+
+    if (!response.ok) {
+      throw new Error("Could not load Google Sheet");
+    }
+
+    const csvText = await response.text();
+
+    // Parse the CSV
+    const rows = csvText
+      .trim()
+      .split("\n")
+      .map(row => row.split(","));
+
+    // Row 2 contains the actual values
+    const data = rows[1];
+
+    if (!data) {
+      throw new Error("No data found in Total sheet");
+    }
+
+    const totalViews = data[0];
+    const avgViews = data[1];
+    const engagementRate = data[2];
+    const totalEngagement = data[3];
+    const reelsPosted = data[4];
+    const followersGained = data[5];
+
+    updateFollowerChart(rows);
+
+
+
+    // Update website
+    document.getElementById("totalViews").textContent =
+      formatNumber(totalViews);
+
+    document.getElementById("avgViews").textContent =
+      formatNumber(avgViews);
+
+    document.getElementById("engagementRate").textContent =
+      formatPercentage(engagementRate);
+
+      document.getElementById("engagementRateText").textContent =
+  formatPercentage(engagementRate);
+
+    document.getElementById("totalEngagement").textContent =
+      formatNumber(totalEngagement);
+
+    document.getElementById("reelsPosted").textContent =
+      formatNumber(reelsPosted);
+
+    document.getElementById("followersGained").textContent =
+      formatNumber(followersGained, true);
+
+  } catch (error) {
+    console.error("Error loading social media metrics:", error);
+  }
+}
+
+
+// Format large numbers
+function formatNumber(value, plusSign = false) {
+
+  const number = Number(
+    String(value).replace(/,/g, "").trim()
+  );
+
+  if (isNaN(number)) {
+    return value;
+  }
+
+  let formatted;
+
+  if (number >= 1000000) {
+    formatted = (number / 1000000).toFixed(1) + "M";
+  } 
+  else if (number >= 1000) {
+    formatted = (number / 1000).toFixed(1) + "K";
+  } 
+  else {
+    formatted = number.toLocaleString();
+  }
+
+  return plusSign && number > 0
+    ? "+" + formatted
+    : formatted;
+}
+
+
+// Format percentages
+function formatPercentage(value) {
+
+  let cleaned = String(value)
+    .replace("%", "")
+    .trim();
+
+  let number = Number(cleaned);
+
+  if (isNaN(number)) {
+    return value;
+  }
+
+  // If Google Sheet gives us 0.064 instead of 6.4
+  if (number < 1) {
+    number *= 100;
+  }
+
+  return number.toFixed(1) + "%";
+}
+
+
+function updateFollowerChart(rows) {
+
+  const followerChartCanvas = document.getElementById("followerChart");
+
+  if (!followerChartCanvas || !window.Chart) return;
+
+  // Get dates from column G and followers from column H
+  // row[6] = column G
+  // row[7] = column H
+  const dailyData = rows
+    .slice(1)
+    .map(row => ({
+      date: row[6]?.trim(),
+      followers: Number(
+        String(row[7] || "")
+          .replace(/,/g, "")
+          .trim()
+      )
+    }))
+    .filter(row =>
+      row.date &&
+      !isNaN(row.followers)
+    );
+
+  const dates = dailyData.map(row => row.date);
+  const instagramFollowers = dailyData.map(row => row.followers);
 
   new Chart(followerChartCanvas, {
     type: "line",
@@ -846,147 +982,8 @@ if (followerChartCanvas && window.Chart) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ===============================
-// GOOGLE SHEETS — TOTAL METRICS
-// ===============================
-
-const totalSheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiO8mDO1jmPGd5Hf9xCpgq7QOCvpBKT9QjensKZMx2DzFlzYkizKgY14TU-ayN8hF1nHJUrtUz8sww/pub?gid=547960535&single=true&output=csv";
-
-async function loadTotalMetrics() {
-  try {
-    const response = await fetch(totalSheetURL);
-
-    if (!response.ok) {
-      throw new Error("Could not load Google Sheet");
-    }
-
-    const csvText = await response.text();
-
-    // Parse the CSV
-    const rows = csvText
-      .trim()
-      .split("\n")
-      .map(row => row.split(","));
-
-    // Row 2 contains the actual values
-    const data = rows[1];
-
-    if (!data) {
-      throw new Error("No data found in Total sheet");
-    }
-
-    const totalViews = data[0];
-    const avgViews = data[1];
-    const engagementRate = data[2];
-    const totalEngagement = data[3];
-    const reelsPosted = data[4];
-    const followersGained = data[5];
-
-    // Update website
-    document.getElementById("totalViews").textContent =
-      formatNumber(totalViews);
-
-    document.getElementById("avgViews").textContent =
-      formatNumber(avgViews);
-
-    document.getElementById("engagementRate").textContent =
-      formatPercentage(engagementRate);
-
-    document.getElementById("totalEngagement").textContent =
-      formatNumber(totalEngagement);
-
-    document.getElementById("reelsPosted").textContent =
-      formatNumber(reelsPosted);
-
-    document.getElementById("followersGained").textContent =
-      formatNumber(followersGained, true);
-
-  } catch (error) {
-    console.error("Error loading social media metrics:", error);
-  }
-}
-
-
-// Format large numbers
-function formatNumber(value, plusSign = false) {
-
-  const number = Number(
-    String(value).replace(/,/g, "").trim()
-  );
-
-  if (isNaN(number)) {
-    return value;
-  }
-
-  let formatted;
-
-  if (number >= 1000000) {
-    formatted = (number / 1000000).toFixed(1) + "M";
-  } 
-  else if (number >= 1000) {
-    formatted = (number / 1000).toFixed(1) + "K";
-  } 
-  else {
-    formatted = number.toLocaleString();
-  }
-
-  return plusSign && number > 0
-    ? "+" + formatted
-    : formatted;
-}
-
-
-// Format percentages
-function formatPercentage(value) {
-
-  let cleaned = String(value)
-    .replace("%", "")
-    .trim();
-
-  let number = Number(cleaned);
-
-  if (isNaN(number)) {
-    return value;
-  }
-
-  // If Google Sheet gives us 0.064 instead of 6.4
-  if (number < 1) {
-    number *= 100;
-  }
-
-  return number.toFixed(1) + "%";
-}
-
-
 // Load metrics
 loadTotalMetrics();
-
 
 
 
