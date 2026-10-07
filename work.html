@@ -244,7 +244,8 @@
         <div class="instagram-chart-wrap">
           <canvas id="followerChart" aria-label="Instagram follower growth chart"></canvas>
         </div>
-      
+        <p class="instagram-chart-caption">1 Month Audience Growth
+        </p>
       </section>
 
       <section class="stats-section">
@@ -872,10 +873,16 @@ function updateFollowerChart(rows) {
           .trim()
       )
     }))
-    .filter(row =>
-      row.date &&
-      !isNaN(row.followers)
-    );
+    .filter(row => {
+      const date = new Date(row.date);
+      const monthAndDay = (date.getMonth() + 1) * 100 + date.getDate();
+
+      return row.date &&
+        !isNaN(row.followers) &&
+        !Number.isNaN(date.getTime()) &&
+        monthAndDay >= 701 &&
+        monthAndDay <= 905;
+    });
 
   const dates = dailyData.map(row => row.date);
   const instagramFollowers = dailyData.map(row => row.followers);

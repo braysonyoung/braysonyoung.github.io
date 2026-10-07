@@ -521,7 +521,8 @@ animation: fadeIn 2s ease;
 
   width: min(90vw, 460px);
 
-  max-height: min(82vh, 500px);
+  max-height: min(90vh, 640px);
+  overflow-y: auto;
 
   height: auto;
 
@@ -1054,6 +1055,14 @@ img {
   display: block;
   width: 100% !important;
   height: 320px !important;
+}
+
+.instagram-chart-caption {
+  max-width: 780px;
+  margin: 0.6rem auto 0;
+  color: rgba(17, 17, 17, 0.65);
+  font-size: 0.75rem;
+  text-align: center;
 }
 
 .stats-section {
@@ -2023,6 +2032,36 @@ img {
   text-align: left;
 }
 
+.streaming-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.streaming-heading {
+  flex-basis: 100%;
+  margin: 0;
+  color: #5e5e5e;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.streaming-service-name {
+  color: #111111;
+  font-size: 1.058rem;
+}
+
+.album-cover .contact-icon-wrap img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+}
+
 .track-item {
   display: inline-flex;
   align-items: center;
@@ -2033,14 +2072,85 @@ img {
 }
 
 .album-cover {
+  width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.album-cover .album-visual {
+  display: flex;
+  width: min(100%, 900px);
+  flex-direction: column;
+  align-items: center;
+}
+
+.album-description-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.album-description-copy {
+  text-align: right;
+}
+
+.album-spotify-player {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.album-spotify-player .streaming-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 1.25rem;
+}
+
+.album-spotify-player .streaming-heading {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.album-spotify-player .streaming-link {
+  gap: 0.627rem;
+  min-width: 0;
+}
+
+.album-spotify-player .contact-icon-wrap {
+  width: 48px;
+  height: 48px;
+}
+
+.album-spotify-player .contact-icon-wrap img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.album-spotify-player .streaming-service-name {
+  font-size: 1.244rem;
+}
+
+.album-spotify-player iframe {
+  display: block;
+  width: 100%;
+  height: 352px;
+  border: 0;
 }
 
 .album-cover img {
   width: min(100%, 520px);
   max-width: 520px;
   height: auto;
+}
+
+.album-cover .album-visual img {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -2051,6 +2161,26 @@ img {
     grid-template-columns: 1fr;
 
     gap: 2rem;
+
+  }
+
+  .album-description-layout {
+
+    grid-template-columns: 1fr;
+
+    gap: 1.25rem;
+
+  }
+
+  .album-description-copy {
+
+    text-align: center;
+
+  }
+
+  .album-spotify-player .streaming-heading {
+
+    text-align: center;
 
   }
 
@@ -2088,8 +2218,6 @@ img {
 .streaming-links a {
   color: #111111;
   text-decoration: none;
-  border-bottom: 1px solid #111111;
-  padding-bottom: 0.15rem;
 }
 
 .spotify-embed-section {
@@ -2574,9 +2702,11 @@ img {
 
 }
 
-.instagram-link-wrap {
+.popup-streaming-links {
 
-  display: flex;
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   justify-content: center;
 
@@ -2586,15 +2716,17 @@ img {
 
   margin: 0 auto 1.25rem;
 
-  width: fit-content;
+  width: min(100%, 360px);
 
   max-width: 100%;
 
 }
 
-.instagram-link {
+.popup-streaming-link {
 
   display: flex;
+
+  box-sizing: border-box;
 
   align-items: center;
 
@@ -2602,19 +2734,15 @@ img {
 
   gap: 0.7rem;
 
-  width: fit-content;
+  width: 100%;
 
-  min-width: 0;
+  height: 48px;
 
   padding: 0;
 
-  border: none;
-
-  border-radius: 0;
+  border: 0;
 
   background: transparent;
-
-  box-shadow: none;
 
   color: #111111;
 
@@ -2622,17 +2750,23 @@ img {
 
   transition: opacity 0.2s ease;
 
-  overflow: visible;
+}
+
+.popup-streaming-link img {
+
+  display: block;
+
+  width: 28px;
+
+  height: 28px;
+
+  object-fit: contain;
 
 }
 
-.instagram-link:hover {
+.popup-streaming-link:hover {
 
   opacity: 0.7;
-
-  transform: none;
-
-  box-shadow: none;
 
 }
 
